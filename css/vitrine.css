@@ -1,0 +1,371 @@
+.vitrine-titulo {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    /* Ajuste o valor conforme necessário */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.carousel-container {
+    max-width: 90%;
+    /* Define um limite de largura para o carrossel */
+    margin: 0 auto;
+    /* Centraliza na tela */
+    overflow: hidden;
+    /* Evita que o conteúdo ultrapasse */
+    position: relative;
+
+}
+
+.carousel {
+    display: flex;
+    gap: 15px;
+    scroll-behavior: smooth;
+    /* Suaviza a rolagem */
+    overflow: hidden;
+    /* Remove a rolagem horizontal */
+    touch-action: pan-y;
+    height: 450px;
+}
+
+.product {
+    flex: 0 0 auto;
+    width: 200px;
+    text-align: center;
+    background: #faffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    scroll-snap-align: center;
+    /* Alinha os produtos ao rolar */
+    margin-top: 15px;
+    margin-bottom: 10px;
+
+    /* Efeito de transição suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    /* Aumenta ligeiramente o tamanho */
+    transform: scale(1.05);
+
+    /* Opcional: adiciona mais sombra ao passar o mouse */
+    box-shadow: 10px 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.product img {
+    width: 100%;
+    height: 150px;
+    /* Define uma altura fixa para todas as imagens */
+    object-fit: cover;
+    /* Ajusta a imagem para preencher o espaço sem distorcer */
+    border-radius: 8px;
+
+
+}
+
+.product h2,
+h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    min-height: 40px;
+    /* Mantém um espaço fixo para o título */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product .preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product .parcelamento {
+    font-size: 14px;
+    color: #228B22;
+}
+
+.product .acrescimo {
+    display: block;
+    font-size: 12px;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.btn-ver-mais {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    background-color: #88c3c5;
+    color: white;
+    padding: 0.6rem 1rem;
+    border: 2px solid rgba(45, 80, 78, 0.2);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
+    width: 75%;
+}
+
+.btn-ver-mais:hover {
+    background-color: #039396;
+    border-color: rgb(2, 119, 119);
+    /* nova cor da borda no hover */
+    transform: scale(1.05);
+    /* Efeito de zoom nos ícones */
+}
+
+.img-indisponivel {
+    filter: grayscale(100%) !important;
+    opacity: 0.7 !important;
+}
+
+.btn-ver-mais.indisponivel {
+    background-color: grey;
+    cursor: not-allowed;
+    opacity: 0.6;
+    display: block;
+    margin: 0 auto;
+}
+
+.indisponivel-text {
+    color: rgb(211, 3, 3) !important;
+    font-weight: bold;
+    font-size: 18px !important;
+}
+
+.product a {
+    text-decoration: none;
+    color: inherit;
+    /* mantém a cor padrão do texto */
+}
+
+.product a:hover {
+    text-decoration: none;
+    /* também remove no hover, se quiser */
+    color: inherit;
+}
+
+.product p {
+    font-size: 14px;
+    color: #33BBC0;
+    font-weight: bold;
+}
+
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    background: #33BBC0;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background: #2DA8AB;
+    opacity: 100%;
+    transition: 0.3s ease;
+}
+
+.produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que os itens quebrem para a próxima linha */
+    gap: 20px;
+    /* Adiciona espaçamento entre os produtos */
+    justify-content: center;
+    /* Centraliza os produtos na tela */
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* Responsividade para a vitrine */
+@media (max-width: 760px) {
+    .vitrine-titulo {
+        font-size: 20px;
+        /* Reduz o tamanho do título */
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+    .carousel-container {
+        max-width: 95%;
+        /* Aumenta a largura para ocupar mais espaço na tela */
+    }
+
+    .carousel {
+        display: flex;
+        gap: 10px;
+        /* Reduz o espaço entre os itens */
+        scroll-behavior: smooth;
+        /* Suaviza a rolagem */
+        overflow: hidden;
+        /* Remove a rolagem horizontal */
+        touch-action: pan-y;
+        height: 350px;
+    }
+
+    .product {
+        width: 180px;
+        /* Diminui a largura dos produtos */
+        padding: 10px;
+        /* Diminui o padding */
+        height: 200px;
+    }
+
+    .product img {
+        height: 120px;
+        /* Diminui a altura das imagens */
+    }
+
+    .product h2,
+    h3 {
+        font-size: 14px;
+        /* Reduz o tamanho das fontes dos títulos */
+        min-height: 30px;
+        /* Ajusta a altura mínima */
+    }
+
+    .indisponivel-text {
+        font-size: 14px !important;
+    }
+
+    .product .preco {
+        font-size: 16px;
+        /* Reduz o tamanho do preço */
+    }
+
+    .product .parcelamento {
+        font-size: 12px;
+        /* Reduz o tamanho do parcelamento */
+    }
+
+    .btn-ver-mais {
+        font-size: 10px;
+    }
+
+    .product .acrescimo {
+        font-size: 10px;
+        /* Reduz o tamanho do acréscimo */
+    }
+
+    .prev-btn,
+    .next-btn {
+        padding: 8px;
+        font-size: 18px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .produtos-container {
+        flex-wrap: wrap;
+        gap: 15px;
+        /* Ajusta o espaçamento entre os produtos */
+    }
+}
+
+/* Responsividade para telas pequenas (smartphones em modo retrato) */
+@media (max-width: 480px) {
+    .vitrine-titulo {
+        font-size: 18px;
+        /* Tamanho menor para o título */
+        margin-top: 20px;
+        margin-left: 5px;
+    }
+
+    .carousel-container {
+        max-width: 100%;
+        /* O carrossel ocupa 100% da largura da tela */
+    }
+
+    .carousel {
+        gap: 5px;
+        /* Menos espaço entre os itens */
+    }
+
+    .product {
+        width: 150px;
+        /* Diminui ainda mais a largura dos produtos */
+        min-height: 300px;
+        /* Ajusta a altura mínima dos produtos */
+        padding: 8px;
+        /* Diminui o padding */
+    }
+
+    .product img {
+        height: 100px;
+        /* Diminui ainda mais a altura das imagens */
+    }
+
+    .product h2,
+    h3 {
+        font-size: 12px;
+        /* Tamanho menor dos títulos */
+        min-height: 25px;
+        /* Ajusta a altura mínima */
+    }
+
+    .product .preco {
+        font-size: 14px;
+        /* Reduz o tamanho do preço */
+    }
+
+    .product .parcelamento {
+        font-size: 10px;
+        /* Reduz o tamanho do parcelamento */
+    }
+
+    .product .acrescimo {
+        font-size: 8px;
+        /* Reduz ainda mais o tamanho do acréscimo */
+    }
+
+    .prev-btn,
+    .next-btn {
+        padding: 6px;
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .produtos-container {
+        flex-wrap: wrap;
+        gap: 10px;
+        /* Menos espaçamento entre os produtos */
+    }
+}

@@ -1,0 +1,265 @@
+/* Container principal do menu */
+.element-menu-category {
+    background-color: #039396;
+    padding: 10px 0;
+
+}
+
+.menu-category-inner {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+.menu-top-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+    /* Espaço entre os itens */
+}
+
+.menu-top-list li a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.menu-top-list li a:hover {
+    color: #555;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s ease;
+
+}
+
+.menu-category-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.menu-category-list>li {
+    position: relative;
+}
+
+.menu-category-list a {
+    display: block;
+    padding: 10px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+    font-size: 14px;
+}
+
+/* Submenu */
+.menu-category-list ul {
+    position: absolute;
+    top: 100%;
+    padding-left: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 10px 0;
+    min-width: 200px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+.menu-category-list li:hover>a {
+    color: #555;
+    /* Cor do item do menu ativo */
+    font-size: 15px;
+}
+
+
+.menu-category-list li:hover>ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-category-list ul li {
+    padding-left: 0;
+    /* Remove o espaçamento interno dos itens */
+    margin-left: 0;
+    /* Remove a margem à esquerda dos itens */
+    width: 100%;
+}
+
+.menu-category-list ul a {
+    padding: 5px;
+    color: #039396;
+    font-size: 14px;
+    display: block;
+    padding: 5px 8px;
+}
+
+.menu-category-list ul li a {
+    padding-left: 20px;
+    /* Se precisar de um leve espaçamento, ajuste aqui */
+}
+
+.menu-category-list ul a:hover {
+    background: #09b6bc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .element-menu-category {
+        padding: 0;
+    }
+
+    /* Menu hambúrguer */
+    .menu-icon {
+        font-size: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        color: #02696b;
+    }
+
+    /* Menu principal */
+    .menu-category-inner {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        background: #2DA8AB;
+        text-align: center;
+        padding: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 2000;
+        opacity: 0;
+        /* Começa invisível */
+        transform: translateY(-10px) scaleX(0);
+        /* Inicialmente movido para cima e com largura 0 */
+        pointer-events: none;
+        /* Impede interação enquanto não está visível */
+        transition: opacity 0.5s ease, transform 0.5s ease, width 0.5s ease;
+        /* Adicionando transição para a largura */
+        width: 0%;
+        /* Inicialmente com largura 0 */
+    }
+
+    /* Menu aberto */
+    .menu-category-inner.active {
+        opacity: 1;
+        /* Torna visível */
+        transform: translateY(0) scaleX(1);
+        /* Move para a posição original e faz a transição da largura */
+        pointer-events: all;
+        /* Permite interação com o menu */
+        width: 100%;
+        /* A largura ocupa todo o espaço disponível */
+    }
+
+    /* Itens do menu */
+    .menu-category-list>li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Estilizando o menu-top-list */
+    .grid-menu-top {
+        justify-content: center;
+    }
+
+    .element-menu-top {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu-top-list {
+        gap: 20px;
+    }
+
+    .menu-top-list li {
+        padding: 10px 0;
+    }
+
+    .menu-top-list li a {
+        font-size: 14px;
+    }
+
+    .element-menu-category {
+        background-color: #fff;
+    }
+
+    /* Menu Principal */
+    .menu-category-list>li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Submenu */
+    .menu-category-list ul {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 0;
+        min-width: 200px;
+        border-radius: 5px;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        overflow: hidden;
+        top: auto;
+        left: 0;
+        box-shadow: none;
+        max-height: 0;
+        text-align: center;
+        transition:
+            opacity 0.4s ease,
+            transform 0.3s ease,
+            max-height 0.6s ease;
+    }
+
+    .menu-category-list ul.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        max-height: 500px;
+        /* Valor alto o suficiente para mostrar o conteúdo */
+    }
+
+    /* Itens do submenu */
+    .menu-category-list ul li {
+        width: 100%;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+    .menu-category-list ul a {
+        padding: 8px 0;
+        font-size: 16px;
+    }
+
+    .menu-category-list ul a:hover {
+        background: #09b6bc;
+    }
+}
+
+@media (max-width: 320px) {
+    .menu-category-inner {
+        top: 18px;
+    }
+}

@@ -1,0 +1,254 @@
+.info-redes-sociais {
+    background-color: #d0f5f7;
+    /* Cor de fundo suave */
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+.info-conteudo h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.info-conteudo p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.redes-sociais {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.social-icon img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.2);
+}
+
+.informacoes-adicionais p {
+    font-size: 16px;
+    color: #333;
+}
+
+.informacoes-adicionais strong {
+    color: #333;
+}
+
+/* Estilizando o link inteiro */
+.info-whatsapp-2 {
+    color: #333;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    /* Espaço entre o número e o ícone */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+/* Efeito ao passar o mouse (realça ambos juntos) */
+.info-whatsapp-2:hover {
+    transform: scale(1.2);
+    transition: 0.3s ease;
+}
+
+/* Ícone do WhatsApp */
+.social-icon-2 {
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s ease;
+}
+
+/* Pequeno efeito de zoom no ícone */
+.info-whatsapp-2:hover .social-icon-2 {
+    transform: scale(1.2);
+    transition: 0.3s ease;
+}
+
+.email {
+    display: inline-flex;
+    color: #333;
+    transition: 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.email:hover {
+    transform: scale(1.1);
+}
+
+/* Rodapé */
+footer {
+    background: #33BBC0;
+    color: #e7e4e4;
+    text-align: center;
+    margin-top: auto;
+    /* Faz o rodapé ficar no final */
+    padding: 10px;
+    /* Diminui o espaço interno */
+    margin: 5px;
+    /* Diminui o espaço externo */
+    line-height: 1.2;
+    /* Diminui o espaço entre as linhas de texto */
+    box-sizing: border-box;
+    /* Garante que o padding e a borda sejam incluídos nas dimensões totais */
+}
+
+/* Responsividade para o rodapé */
+@media (max-width: 768px) {
+
+    /* Ajusta o layout do rodapé */
+    footer {
+        padding: 20px;
+        /* Aumenta o padding para dar mais espaçamento */
+        margin: 10px 5px;
+        /* Ajuste das margens */
+        text-align: center;
+        /* Garante o alinhamento central do conteúdo */
+    }
+
+    /* Ajustes na seção de redes sociais */
+    .info-redes-sociais {
+        padding: 20px 10px;
+        /* Reduz o padding para caber melhor em telas pequenas */
+    }
+
+    .info-conteudo h2 {
+        font-size: 20px;
+        /* Reduz o tamanho do título */
+        margin-bottom: 10px;
+    }
+
+    .info-conteudo p {
+        font-size: 16px;
+        /* Reduz o tamanho da descrição */
+    }
+
+    /* Ícones das redes sociais */
+    .social-icon {
+        margin: 0 10px;
+        /* Diminui o espaço entre os ícones */
+    }
+
+    .social-icon img {
+        width: 30px;
+        /* Reduz o tamanho dos ícones */
+        height: 30px;
+    }
+
+    .informacoes-adicionais p {
+        font-size: 14px;
+        /* Reduz o tamanho do texto adicional */
+    }
+
+    .informacoes-adicionais strong {
+        font-size: 16px;
+        /* Ajuste no tamanho do texto em negrito */
+    }
+
+    /* Ajuste no link do WhatsApp */
+    .info-whatsapp-2 {
+        font-size: 14px;
+        /* Reduz o tamanho da fonte */
+        padding: 5px 8px;
+        /* Ajuste no padding */
+    }
+
+    /* Ícones do WhatsApp */
+    .social-icon-2 {
+        width: 20px;
+        /* Reduz o tamanho do ícone do WhatsApp */
+        height: 20px;
+    }
+
+    /* Ajusta a escala do ícone do WhatsApp ao passar o mouse */
+    .info-whatsapp-2:hover .social-icon-2 {
+        transform: scale(1.1);
+    }
+
+    /* Alinhamento das informações no footer */
+    .redes-sociais {
+        margin-bottom: 15px;
+        /* Diminui o espaçamento abaixo das redes sociais */
+    }
+}
+
+/* Responsividade para telas muito pequenas (como smartphones em modo retrato) */
+@media (max-width: 480px) {
+
+    /* Reduz ainda mais o tamanho do rodapé */
+    footer {
+        padding: 15px 10px;
+        /* Menos padding */
+    }
+
+    /* Ajuste para que o texto não fique esmagado */
+    .info-conteudo h2 {
+        font-size: 18px;
+        /* Tamanho menor para telas menores */
+    }
+
+    .info-conteudo p {
+        font-size: 14px;
+        /* Menor ainda para caber melhor */
+    }
+
+    .social-icon img {
+        width: 25px;
+        /* Ícones menores */
+        height: 25px;
+    }
+
+    .informacoes-adicionais p {
+        font-size: 13px;
+        /* Texto ainda menor */
+    }
+
+    .info-whatsapp-2 {
+        font-size: 13px;
+        /* Tamanho da fonte menor para caber melhor */
+        padding: 4px 7px;
+        /* Ajuste do padding */
+    }
+
+    .social-icon-2 {
+        width: 18px;
+        /* Ícone do WhatsApp ainda menor */
+        height: 18px;
+    }
+}
+
+.mh {
+  display: inline-block;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  cursor: pointer;
+  line-height: 0;       /* remove espaço abaixo */
+  vertical-align: middle;
+}
+
+.mh:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.mh svg {
+  fill: #e7e4e4;          /* deixa as letras do SVG brancas */
+  display: block;
+}

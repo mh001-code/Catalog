@@ -1,0 +1,283 @@
+#header-main {
+    background-color: #33BBC0;
+    /* Cor de fundo */
+    padding: 0;
+    /* Espaçamento vertical */
+}
+
+.header-1 {
+    display: flex;
+    justify-content: space-between;
+    /* Distribui os elementos (esquerda e direita) */
+    align-items: center;
+    /* Centraliza verticalmente */
+    width: 90%;
+    /* Largura total */
+    max-width: 1200px;
+    /* Limite de largura */
+    margin: 0 auto;
+    /* Centraliza na tela */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* Espaçamento inferior */
+}
+
+.container-12 {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha quando precisar */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* Adiciona espaço interno */
+    box-sizing: border-box; /* Muito importante */
+}
+
+.grid-menu-top {
+    display: flex;
+    justify-content: flex-start;
+    /* Mantém os links à esquerda */
+}
+
+
+/* Posicionando a área de atendimento à direita */
+.grid-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Alinha os elementos à direita */
+    color: white;
+    font-size: 14px;
+}
+
+.info-inner {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    /* Alinha os ícones ao centro verticalmente */
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    /* Efeito de zoom nos ícones */
+}
+
+.icon-phone {
+    /* Exemplo de ícone de telefone */
+    margin-right: 8px;
+}
+
+/* Exibir menu quando ativado */
+.menu-top-list.active {
+    display: flex;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #33BBC0;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.header-2 {
+    background-color: white;
+    /* Fundo branco para diferenciar */
+    padding: 10px 0;
+    /* Espaçamento vertical */
+    border-bottom: 2px solid #ddd;
+    /* Linha sutil para separação */
+}
+
+.grid-logo {
+    flex: 1 1 200px; /* Logo ocupa o mínimo necessário */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 220px;
+    /* Ajuste o tamanho do logo conforme necessário */
+    height: auto;
+}
+
+.grid-search {
+    flex: 2 1 600px; /* Pesquisa ocupa mais espaço */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element-search {
+    width: 100%;
+}
+
+.search-inner {
+    display: flex;
+    width: 100%;
+    max-width: 700px;
+    border: 2px solid #33BBC0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.search-field {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.btn-search {
+    background: #33BBC0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 0 20px 20px 0;
+}
+
+.btn-search:hover {
+    background: #2DA8AB;
+    /* Tom mais escuro no hover */
+}
+
+.icon-search {
+    font-size: 16px;
+}
+
+/* Esconde o menu no desktop */
+.mobile-header,
+.mobile-menu {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .search-inner {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+/* Exibir apenas no mobile */
+/* Ajustes adicionais para a responsividade */
+@media (max-width: 768px) {
+
+    .mobile-header {
+        display: block; /* Torna visível no mobile */
+        position: absolute; /* Coloca o ícone de menu fora do fluxo normal */
+        top: 70px; /* Ajuste a distância do topo */
+        left: 10px; /* Ajuste a distância da borda direita */
+        z-index: 3000; /* Garante que fique acima de outros elementos */
+    }
+
+    .container-12 {
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .menu-top-list li a:hover {
+        color: #33BBC0;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2);
+    }
+
+    /* Ajuste para o logo e campo de busca */
+    .grid-logo,
+    .grid-search {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .element-search {
+        width: 100%;
+    }
+
+    .search-inner {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search-field {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .btn-search {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .element-logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo img {
+        max-width: 150px;
+        height: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .mobile-header {
+        top: 70px; /* Ajuste a distância do topo */
+    }
+
+    .container-12 {
+        align-items: center;
+        padding: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .grid-6 {
+        display: none;
+    }
+
+    .mobile-header {
+        top: 35px; /* Ajuste a distância do topo */
+    }
+
+    .search-field,
+    .btn-text {
+        font-size: 12px;
+    }
+}

@@ -1,1 +1,1 @@
-# Catalog
+# FurnitureCatalog
