@@ -14,7 +14,7 @@ document.getElementById('busca-nome').addEventListener('input', function () {
         return;
     }
 
-    fetch(`/FurnitureCatalog/manager/php/search_products.php?termo=${encodeURIComponent(termo)}`)
+    fetch(`/Catalog/manager/php/search_products.php?termo=${encodeURIComponent(termo)}`)
         .then(res => res.json())
         .then(produtos => {
             sugestoesUl.innerHTML = '';
@@ -36,7 +36,7 @@ document.getElementById('busca-nome').addEventListener('input', function () {
 
 // Função que carrega o produto para edição
 function carregarProduto(id) {
-    fetch(`/FurnitureCatalog/manager/php/get_product_by_id.php?id=${id}`)
+    fetch(`/Catalog/manager/php/get_product_by_id.php?id=${id}`)
         .then(res => res.json())
         .then(produto => {
             if (!produto || !produto.id) {
@@ -72,7 +72,7 @@ function carregarProduto(id) {
                 if (!nome) return '';
                 // Se o nome já contém '/img/product_images/', não concatena
                 if (nome.includes('/img/product_images/')) return nome;
-                return `/FurnitureCatalog/img/product_images/${nome}`;
+                return `/Catalog/img/product_images/${nome}`;
             };
 
 
@@ -116,7 +116,7 @@ function uploadImagem(inputFileId, hiddenInputId) {
         const formData = new FormData();
         formData.append('imagem', file);
 
-        fetch('/FurnitureCatalog/manager/php/upload_image.php', {
+        fetch('/Catalog/manager/php/upload_image.php', {
             method: 'POST',
             body: formData
         })
@@ -161,7 +161,7 @@ document.getElementById('editar-form').addEventListener('submit', async function
         };
 
 
-        const res = await fetch('/FurnitureCatalog/manager/php/update_product.php', {
+        const res = await fetch('/Catalog/manager/php/update_product.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(produto)
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!confirmar) return;
 
         try {
-            const response = await fetch(`/FurnitureCatalog/manager/php/delete_product.php?id=${encodeURIComponent(produtoId)}`, {
+            const response = await fetch(`/Catalog/manager/php/delete_product.php?id=${encodeURIComponent(produtoId)}`, {
                 method: 'GET'
             });
 

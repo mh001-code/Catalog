@@ -79,7 +79,7 @@ function slugify($text)
                             <br>
                             <p class="indisponivel-text"></p>
                             <br>
-                            <a href="/FurnitureCatalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
+                            <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
                                 <button class="btn-ver-mais">Detalhes</button>
                             </a>
                         <?php endif; ?>
@@ -120,7 +120,7 @@ function slugify($text)
                             <br>
                             <p class="indisponivel-text"></p>
                             <br>
-                            <a href="/FurnitureCatalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
+                            <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
                                 <button class="btn-ver-mais">Detalhes</button>
                             </a>
                         <?php endif; ?>

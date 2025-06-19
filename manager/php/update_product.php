@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-include '/xampp/htdocs/FurnitureCatalog/php/conection.php';
+include '/xampp/htdocs/Catalog/php/conection.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 

@@ -14,7 +14,7 @@ if (!isset($_SESSION['logado'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adicionar Produto</title>
-  <link rel="stylesheet" href="/FurnitureCatalog/css/styles.css">
+  <link rel="stylesheet" href="/Catalog/css/styles.css">
   <link rel="icon" href="/img/icons/favicon1.png" type="image/x-icon">
 </head>
 
@@ -22,7 +22,7 @@ if (!isset($_SESSION['logado'])) {
   <div class="admin-container">
     <h2>Adicionar Produto</h2>
 
-    <form id="product-form" enctype="multipart/form-data" method="POST" action="/FurnitureCatalog/manager/php/add_product.php">
+    <form id="product-form" enctype="multipart/form-data" method="POST" action="/Catalog/manager/php/add_product.php">
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required>
 
@@ -68,7 +68,7 @@ if (!isset($_SESSION['logado'])) {
       <button type="submit">Adicionar Produto</button>
     </form>
     <div class="voltar-container">
-      <a href="/FurnitureCatalog/admin" class="btn-voltar">← Voltar ao Painel</a>
+      <a href="/Catalog/admin" class="btn-voltar">← Voltar ao Painel</a>
     </div>
 
 
@@ -76,8 +76,8 @@ if (!isset($_SESSION['logado'])) {
 
   </div>
 
-  <script src="/FurnitureCatalog/manager/js/add_product.js"></script>
-  <script src="/FurnitureCatalog/manager/js/script.js"></script>
+  <script src="/Catalog/manager/js/add_product.js"></script>
+  <script src="/Catalog/manager/js/script.js"></script>
 </body>
 
 </html>

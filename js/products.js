@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("URL Path:", window.location.pathname);
 
   // Captura o caminho da URL
-  const path = window.location.pathname; // ex: /FurnitureCatalog/produtos/quarto/guarda-roupas
+  const path = window.location.pathname; // ex: /Catalog/produtos/quarto/guarda-roupas
   const partes = path.split("/").filter(p => p); // remove elementos vazios
 
   let categoria = null;
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   titulo.textContent = tituloPagina;
 
   // Buscar produtos do PHP
-  let url = `/FurnitureCatalog/php/get_products.php?categoria=${encodeURIComponent(categoria)}`;
+  let url = `/Catalog/php/get_products.php?categoria=${encodeURIComponent(categoria)}`;
   if (subcategoria) {
     url += `&subcategoria=${encodeURIComponent(subcategoria)}`;
   }
@@ -99,7 +99,7 @@ function slugify(texto) {
     let acrescimoHTML = `<span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>`;
     let nomeSlug = slugify(produto.nome);
 
-    let detalhesHTML = `<a href="/FurnitureCatalog/produto/${produto.id}/${nomeSlug}">
+    let detalhesHTML = `<a href="/Catalog/produto/${produto.id}/${nomeSlug}">
                       <button class="btn-ver-mais">Detalhes</button>
                     </a>`;
 

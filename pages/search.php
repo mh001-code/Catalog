@@ -40,7 +40,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados da Pesquisa</title>
-    <link rel="stylesheet" href="/FurnitureCatalog/css/styles.css">
+    <link rel="stylesheet" href="/Catalog/css/styles.css">
     <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
 </head>
 
@@ -82,7 +82,7 @@ try {
                             <br>
                             <p class="indisponivel-text"></p>
                             <br>
-                            <a href="/FurnitureCatalog/produto/<?= $produto['id']; ?>/<?= $slug ?>">
+                            <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= $slug ?>">
                                 <button class="btn-ver-mais">Detalhes</button>
                             </a>
                         <?php endif; ?>
@@ -94,8 +94,8 @@ try {
 
     <div><?php include '../tools/footer.html'; ?></div>
 
-    <script src="/FurnitureCatalog/js/products.js"></script>
-    <script src="/FurnitureCatalog/js/script.js"></script>
+    <script src="/Catalog/js/products.js"></script>
+    <script src="/Catalog/js/script.js"></script>
 
 </body>
 

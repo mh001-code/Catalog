@@ -6,8 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gilmar Móveis</title>
-    <link rel="stylesheet" href="/FurnitureCatalog/css/styles.css">
-    <link rel="icon" href="/FurnitureCatalog/img/icons/favicon1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/Catalog/css/styles.css">
+    <link rel="icon" href="/Catalog/img/icons/favicon1.png" type="image/x-icon">
 </head>
 
 <body>
@@ -59,8 +59,8 @@ error_reporting(E_ALL);?>
         <?php include '../tools/footer.html'; ?>
     </div>
 
-    <script src="/FurnitureCatalog/js/product.js"></script>
-    <script src="/FurnitureCatalog/js/script.js"></script>
+    <script src="/Catalog/js/product.js"></script>
+    <script src="/Catalog/js/script.js"></script>
 </body>
 
 </html>

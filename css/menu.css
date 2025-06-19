@@ -1,6 +1,6 @@
 /* Container principal do menu */
 .element-menu-category {
-    background-color: #039396;
+    background-color: #0a2da3;
     padding: 10px 0;
 
 }
@@ -39,9 +39,13 @@
 .menu-category-list {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+    flex-wrap: nowrap; /* não deixa quebrar linha */
+    justify-content: flex-start; /* alinha à esquerda */
+    gap: 5px; /* reduz espaço entre as categorias */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-items: center;
 }
 
 .menu-category-list>li {
@@ -55,7 +59,12 @@
     text-decoration: none;
     font-weight: bold;
     transition: background 0.3s;
-    font-size: 14px;
+    font-size: 13px;
+}
+
+.menu-category-list > li > a {
+    font-size: 13px; /* diminui o tamanho da fonte */
+    padding: 6px 8px; /* reduz espaçamento interno */
 }
 
 /* Submenu */
@@ -79,7 +88,7 @@
 .menu-category-list li:hover>a {
     color: #555;
     /* Cor do item do menu ativo */
-    font-size: 15px;
+    font-size: 14px;
 }
 
 
@@ -138,7 +147,7 @@
         position: absolute;
         top: 55px;
         left: 0;
-        background: #2DA8AB;
+        background: #0a2da3;
         text-align: center;
         padding: 0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);

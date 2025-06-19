@@ -1,5 +1,5 @@
 #header-main {
-    background-color: #33BBC0;
+    background-color: #0a2da3;
     /* Cor de fundo */
     padding: 0;
     /* Espaçamento vertical */
@@ -90,7 +90,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #33BBC0;
+    color: #0a2da3;
     text-decoration: none;
     font-size: 16px;
 }
@@ -98,14 +98,14 @@ nav ul li a {
 .header-2 {
     background-color: white;
     /* Fundo branco para diferenciar */
-    padding: 10px 0;
+    padding: 8px 0;
     /* Espaçamento vertical */
     border-bottom: 2px solid #ddd;
     /* Linha sutil para separação */
 }
 
 .grid-logo {
-    flex: 1 1 200px; /* Logo ocupa o mínimo necessário */
+    flex: 0 1 200px; /* Logo ocupa o mínimo necessário */
     display: flex;
     align-items: center;
 }
@@ -117,7 +117,7 @@ nav ul li a {
 }
 
 .grid-search {
-    flex: 2 1 600px; /* Pesquisa ocupa mais espaço */
+    flex: 1 1 600px; /* Pesquisa ocupa mais espaço */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,8 +131,8 @@ nav ul li a {
     display: flex;
     width: 100%;
     max-width: 700px;
-    border: 2px solid #33BBC0;
-    border-radius: 20px;
+    border: 2px solid #0a2da3;
+    border-radius: 22px;
     overflow: hidden;
     background: #fff;
     box-sizing: border-box;
@@ -148,7 +148,7 @@ nav ul li a {
 }
 
 .btn-search {
-    background: #33BBC0;
+    background: #0a2da3;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -156,11 +156,11 @@ nav ul li a {
     display: flex;
     align-items: center;
     gap: 5px;
-    border-radius: 0 20px 20px 0;
+    border-radius: 2 20px 20px 2;
 }
 
 .btn-search:hover {
-    background: #2DA8AB;
+    background: #001F87;
     /* Tom mais escuro no hover */
 }
 
@@ -199,7 +199,7 @@ nav ul li a {
     }
 
     .menu-top-list li a:hover {
-        color: #33BBC0;
+        color: #0a2da3;
     }
 
     .social-icon {

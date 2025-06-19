@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-include '/xampp/htdocs/FurnitureCatalog/php/conection.php';
+include '/xampp/htdocs/Catalog/php/conection.php';
 
 $nome = $_GET['nome'] ?? '';
 

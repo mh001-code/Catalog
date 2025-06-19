@@ -161,7 +161,7 @@ h3 {
 
 .product p {
     font-size: 14px;
-    color: #33BBC0;
+    color: #0a2da3;
     font-weight: bold;
 }
 
@@ -172,7 +172,7 @@ h3 {
     top: 50%;
     transform: translateY(-50%);
     opacity: 0.5;
-    background: #33BBC0;
+    background: #0a2da3;
     color: white;
     border: none;
     padding: 10px;
@@ -197,7 +197,7 @@ h3 {
 
 .prev-btn:hover,
 .next-btn:hover {
-    background: #2DA8AB;
+    background: #0a2da3;
     opacity: 100%;
     transition: 0.3s ease;
 }

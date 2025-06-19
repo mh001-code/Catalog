@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="/FurnitureCatalog/css/styles.css" />
+    <link rel="stylesheet" href="/Catalog/css/styles.css" />
 </head>
 <body>
     <div class="login-container">
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <button type="submit" class="btn-login">Entrar</button>
 
-            <a href="/FurnitureCatalog/Home" class="btn-voltar-home">← Voltar para o Catálogo</a>
+            <a href="/Catalog/Home" class="btn-voltar-home">← Voltar para o Catálogo</a>
 
 
             <?php if ($erro): ?>

@@ -1,0 +1,41 @@
+RewriteEngine On
+RewriteBase /Catalog/
+
+# Página Inicial
+RewriteRule ^Home/?$ pages/index.php [L,QSA]
+
+# Quem Somos
+RewriteRule ^Quem-Somos/?$ pages/about_us.php [L,QSA]
+
+# Fale Conosco
+RewriteRule ^Fale-Conosco/?$ pages/talk_to_us.php [L,QSA]
+
+# Pesquisa
+RewriteRule ^pesquisar(?:/([^/]+))?/?$ pages/search.php?pesquisa=$1 [L,QSA]
+
+# Reescreve /produtos/categoria/subcategoria
+RewriteRule ^produtos/([^/]+)/([^/]+)/?$ pages/products.php?categoria=$1&subcategoria=$2 [L,QSA]
+
+# Reescreve /produtos/categoria
+RewriteRule ^produtos/([^/]+)/?$ pages/products.php?categoria=$1 [L,QSA]
+
+# Regra para URL amigável: /produto/{id}/{slug}
+RewriteRule ^produto/([0-9]+)/([a-zA-Z0-9\-]+)?$ pages/product.php?id=$1 [L,QSA]
+
+# Redirecionar produto por ID e nome amigável
+RewriteRule ^produto/([0-9]+)/([a-zA-Z0-9\-]+)$ pages/product.php?id=$1 [L]
+
+# Admin - Painel Principal
+RewriteRule ^admin/?$ manager/management/admin.php [L,QSA]
+
+# Login
+RewriteRule ^login/?$ manager/management/login.php [L,QSA]
+
+# Logout
+RewriteRule ^logout/?$ manager/management/logout.php [L,QSA]
+
+# Adicionar Produto
+RewriteRule ^admin/adicionar/?$ manager/management/add_product.php [L,QSA]
+
+# Editar Produto
+RewriteRule ^admin/editar/?$ manager/management/edit_product.php [L,QSA]

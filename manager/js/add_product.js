@@ -9,7 +9,7 @@ document.getElementById('product-form').addEventListener('submit', function (eve
   formData.set('mais_vendido', document.getElementById('mais_vendido').checked ? 0 : 1);
   formData.set('indisponivel', document.getElementById('indisponivel').checked ? 0 : 1);
 
-  fetch('/FurnitureCatalog/manager/php/add_product.php', {
+  fetch('/Catalog/manager/php/add_product.php', {
     method: 'POST',
     body: formData // Envia o FormData diretamente
   })

@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  fetch('/FurnitureCatalog/php/get_product_by_id.php?id=' + id)
+  fetch('/Catalog/php/get_product_by_id.php?id=' + id)
     .then(response => response.json())
     .then(produto => {
       const whatsappDiv = document.getElementById("whatsapp-link");
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       whatsappDiv.innerHTML = `
         <a href="${linkWhatsApp}" target="_blank" class="btn-whatsapp">
           Falar sobre este produto
-          <img src="/FurnitureCatalog/img/icons/whatsapp_icon.svg" alt="WhatsApp" class="icon-whatsapp" />
+          <img src="/Catalog/img/icons/whatsapp_icon.svg" alt="WhatsApp" class="icon-whatsapp" />
         </a>
       `;
 
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const categoriaNomeFormatada = produto.categoria.replace(/_/g, " ");
       const categoriaSlug = slugify(produto.categoria);
-      const linkCategoria = `<a href="/FurnitureCatalog/produtos/${categoriaSlug}">${categoriaNomeFormatada}</a>`;
+      const linkCategoria = `<a href="/Catalog/produtos/${categoriaSlug}">${categoriaNomeFormatada}</a>`;
 
 
       let linkSubcategoria = "";
@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (produto.subcategoria) {
         const subcategoriaNomeFormatada = produto.subcategoria.replace(/_/g, " ");
         const subcategoriaSlug = slugify(produto.subcategoria);
-        linkSubcategoria = ` > <a href="/FurnitureCatalog/produtos/${categoriaSlug}/${subcategoriaSlug}">${subcategoriaNomeFormatada}</a>`;
+        linkSubcategoria = ` > <a href="/Catalog/produtos/${categoriaSlug}/${subcategoriaSlug}">${subcategoriaNomeFormatada}</a>`;
 
       }
 

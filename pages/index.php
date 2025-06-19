@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gilmar Móveis</title>
-    <link rel="stylesheet" href="/FurnitureCatalog/css/styles.css">
+    <link rel="stylesheet" href="/Catalog/css/styles.css">
     <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
 
 </head>
@@ -55,7 +55,7 @@
         <?php include '../tools/footer.html'; ?>
     </div>
 
-    <script src="/FurnitureCatalog/js/script.js"></script>
+    <script src="/Catalog/js/script.js"></script>
 </body>
 
 </html>

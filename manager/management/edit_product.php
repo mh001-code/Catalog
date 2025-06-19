@@ -14,7 +14,7 @@ if (!isset($_SESSION['logado'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Produto</title>
-    <link rel="stylesheet" href="/FurnitureCatalog/css/styles.css" />
+    <link rel="stylesheet" href="/Catalog/css/styles.css" />
 </head>
 
 <body>
@@ -98,14 +98,14 @@ if (!isset($_SESSION['logado'])) {
         </form>
 
         <div class="voltar-container">
-            <a href="/FurnitureCatalog/admin" class="btn-voltar">← Voltar ao Painel</a>
+            <a href="/Catalog/admin" class="btn-voltar">← Voltar ao Painel</a>
         </div>
 
 
         <p id="mensagem"></p>
     </div>
-    <script src="/FurnitureCatalog/manager/js/edit_product.js"></script>
-    <script src="/FurnitureCatalog/manager/js/script.js"></script>
+    <script src="/Catalog/manager/js/edit_product.js"></script>
+    <script src="/Catalog/manager/js/script.js"></script>
 </body>
 
 </html>
