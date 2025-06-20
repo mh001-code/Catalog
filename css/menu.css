@@ -1,55 +1,33 @@
 /* Container principal do menu */
 .element-menu-category {
     background-color: #0a2da3;
-    padding: 10px 0;
+    padding: 10px 0; /* mais espaço lateral */
 
 }
 
 .menu-category-inner {
-    max-width: auto;
+    max-width: 1200px; /* ou o valor que você quiser */
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-    padding-top: auto;
-    padding-bottom: auto;
-}
-
-.menu-top-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 25px;
-    /* Espaço entre os itens */
-}
-
-.menu-top-list li a {
-    color: white;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.menu-top-list li a:hover {
-    color: #555;
-    font-size: 15px;
-    font-weight: bold;
-    transition: 0.3s ease;
-
 }
 
 .menu-category-list {
     list-style: none;
     display: flex;
-    flex-wrap: nowrap; /* não deixa quebrar linha */
-    justify-content: flex-start; /* alinha à esquerda */
-    gap: 5px; /* reduz espaço entre as categorias */
+    gap: 25px;
+    /* alinha à esquerda */
     margin: 0;
     padding: 0;
-    text-align: center;
+    text-align: initial;
     align-items: center;
+    justify-content: center;
 }
 
 .menu-category-list>li {
     position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 .menu-category-list a {
@@ -62,20 +40,24 @@
     font-size: 13px;
 }
 
-.menu-category-list > li > a {
-    font-size: 13px; /* diminui o tamanho da fonte */
-    padding: 6px 8px; /* reduz espaçamento interno */
+.menu-category-list>li>a {
+    font-size: 13px;
+    /* diminui o tamanho da fonte */
+    padding: 6px 8px;
+    /* reduz espaçamento interno */
 }
 
 /* Submenu */
 .menu-category-list ul {
     position: absolute;
     top: 100%;
-    padding-left: 0;
-    background: #fff;
-    flex-direction: column;
+    left: 0;
+    margin: 0;
     padding: 10px 0;
-    min-width: 200px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    min-width: 10px;
     border-radius: 5px;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -85,8 +67,14 @@
     transition: opacity 0.4s ease, transform 0.3s ease;
 }
 
+
 .menu-category-list li:hover>a {
-    color: #555;
+    background: linear-gradient(90deg, #FCE40E, #E92D4C, #61C4F1, #C6DD5A, #FC8A26);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    transition: 0.5s ease;
     /* Cor do item do menu ativo */
     font-size: 14px;
 }
@@ -108,7 +96,7 @@
 
 .menu-category-list ul a {
     padding: 5px;
-    color: #039396;
+    color: #0a2da3;
     font-size: 14px;
     display: block;
     padding: 5px 8px;
@@ -120,7 +108,12 @@
 }
 
 .menu-category-list ul a:hover {
-    background: #09b6bc;
+    background: linear-gradient(90deg, #FCE40E, #E92D4C, #61C4F1, #C6DD5A, #FC8A26);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    transition: 0.5s ease;
 }
 
 /* Responsividade */
@@ -142,6 +135,12 @@
 
     /* Menu principal */
     .menu-category-inner {
+        max-width: 1200px;
+        /* ou outro valor que faça sentido */
+        margin: 0 auto;
+        /* centraliza */
+        padding: 0 20px;
+        /* espaçamento lateral para “respirar” */
         display: flex;
         flex-direction: column;
         position: absolute;

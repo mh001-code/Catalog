@@ -24,31 +24,54 @@
 
 .container-12 {
     display: flex;
-    flex-wrap: wrap; /* Permite quebrar linha quando precisar */
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px; /* Adiciona espaço interno */
-    box-sizing: border-box; /* Muito importante */
+    padding: 0;
+    /* Remova o padding lateral */
+    box-sizing: border-box;
 }
 
 .grid-menu-top {
     display: flex;
     justify-content: flex-start;
-    /* Mantém os links à esquerda */
+    flex: 1;
 }
 
+
+.menu-top-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+    /* Espaço entre os itens */
+}
+
+.menu-top-list li a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.menu-top-list li a:hover {
+    background: linear-gradient(90deg, #FCE40E, #E92D4C, #61C4F1, #C6DD5A, #FC8A26);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s ease;
+
+}
 
 /* Posicionando a área de atendimento à direita */
 .grid-info {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    /* Alinha os elementos à direita */
-    color: white;
-    font-size: 14px;
+    justify-content: flex-end;
+    flex: 1;
 }
 
 .info-inner {
@@ -95,6 +118,14 @@ nav ul li a {
     font-size: 16px;
 }
 
+.header-2-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
 .header-2 {
     background-color: white;
     /* Fundo branco para diferenciar */
@@ -105,7 +136,8 @@ nav ul li a {
 }
 
 .grid-logo {
-    flex: 0 1 200px; /* Logo ocupa o mínimo necessário */
+    flex: 0 1 200px;
+    /* Logo ocupa o mínimo necessário */
     display: flex;
     align-items: center;
 }
@@ -117,7 +149,8 @@ nav ul li a {
 }
 
 .grid-search {
-    flex: 1 1 600px; /* Pesquisa ocupa mais espaço */
+    flex: 1 1 600px;
+    /* Pesquisa ocupa mais espaço */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,8 +193,13 @@ nav ul li a {
 }
 
 .btn-search:hover {
-    background: #001F87;
-    /* Tom mais escuro no hover */
+    background: conic-gradient(from 0deg, #FCE40E, #E92D4C, #61C4F1, #C6DD5A, #FC8A26, #FCE40E);
+    opacity: 85%;
+    color: white;
+    transition: background 0.4s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .icon-search {
@@ -185,12 +223,61 @@ nav ul li a {
 /* Ajustes adicionais para a responsividade */
 @media (max-width: 768px) {
 
+    .header-2-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .grid-logo,
+    .grid-search {
+        width: 100% !important;
+        justify-content: center;
+        display: flex;
+    }
+
+    .element-logo,
+    .element-search {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .grid-logo,
+    .grid-search,
+    .element-logo,
+    .element-search {
+        margin: 0;
+        /* Remove espaçamento vertical padrão */
+        padding: 0;
+        /* Remove preenchimento, se houver */
+    }
+
+    .search-inner {
+  margin-top: 0 !important;
+}
+
+    .search-inner {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .logo img {
+        max-width: 150px;
+        height: auto;
+    }
+
     .mobile-header {
-        display: block; /* Torna visível no mobile */
-        position: absolute; /* Coloca o ícone de menu fora do fluxo normal */
-        top: 70px; /* Ajuste a distância do topo */
-        left: 10px; /* Ajuste a distância da borda direita */
-        z-index: 3000; /* Garante que fique acima de outros elementos */
+        display: block;
+        /* Torna visível no mobile */
+        position: absolute;
+        /* Coloca o ícone de menu fora do fluxo normal */
+        top: 70px;
+        /* Ajuste a distância do topo */
+        left: 10px;
+        /* Ajuste a distância da borda direita */
+        z-index: 3000;
+        /* Garante que fique acima de outros elementos */
     }
 
     .container-12 {
@@ -211,26 +298,6 @@ nav ul li a {
 
     .social-icon:hover {
         transform: scale(1.2);
-    }
-
-    /* Ajuste para o logo e campo de busca */
-    .grid-logo,
-    .grid-search {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-
-    .element-search {
-        width: 100%;
-    }
-
-    .search-inner {
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 10px;
     }
 
     .search-field {
@@ -258,7 +325,8 @@ nav ul li a {
 
 @media (max-width: 360px) {
     .mobile-header {
-        top: 70px; /* Ajuste a distância do topo */
+        top: 70px;
+        /* Ajuste a distância do topo */
     }
 
     .container-12 {
@@ -273,7 +341,8 @@ nav ul li a {
     }
 
     .mobile-header {
-        top: 35px; /* Ajuste a distância do topo */
+        top: 35px;
+        /* Ajuste a distância do topo */
     }
 
     .search-field,
