@@ -146,6 +146,12 @@ nav ul li a {
     max-width: 220px;
     /* Ajuste o tamanho do logo conforme necessário */
     height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+
 }
 
 .grid-search {
@@ -169,6 +175,8 @@ nav ul li a {
     overflow: hidden;
     background: #fff;
     box-sizing: border-box;
+    overflow: hidden;
+    align-items: stretch;
 }
 
 .search-field {
@@ -189,16 +197,16 @@ nav ul li a {
     display: flex;
     align-items: center;
     gap: 5px;
-    border-radius: 2 20px 20px 2;
+    border-radius: 0;
+    border-left: 2px solid #0a2da3;
+    transition: background 0.6s ease;
 }
 
 .btn-search:hover {
-    background: conic-gradient(from 0deg, #FCE40E, #E92D4C, #61C4F1, #C6DD5A, #FC8A26, #FCE40E);
-    opacity: 85%;
+    background:#082583;
     color: white;
-    transition: background 0.4s ease;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
 
@@ -266,7 +274,8 @@ nav ul li a {
     .header-2-inner {
         flex-direction: column !important;
         align-items: center !important;
-        gap: 10px; /* ajuste espaçamento vertical */
+        gap: 10px;
+        /* ajuste espaçamento vertical */
         padding: 0 !important;
         margin: 0 !important;
     }
@@ -358,7 +367,8 @@ nav ul li a {
 
     .search-field {
         flex: 1 1 auto !important;
-        min-width: 0; /* evita overflow */
+        min-width: 0;
+        /* evita overflow */
         font-size: 16px !important;
         padding: 10px 12px !important;
         border: none !important;
@@ -369,8 +379,8 @@ nav ul li a {
         padding: 10px 20px !important;
         font-size: 16px !important;
         white-space: nowrap;
-        border-radius: 0 22px 22px 0 !important;
-        flex-shrink: 0; /* não deixa o botão encolher */
+        flex-shrink: 0;
+        /* não deixa o botão encolher */
     }
 
     /* Ícone de menu mobile */

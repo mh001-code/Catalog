@@ -177,6 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
       aviso.textContent = "Atenção: para parcelamentos acima de 5x, poderá haver acréscimo no valor total.";
       aviso.classList.add("aviso-parcelamento");
 
+      const crediario = document.getElementById("crediario");
+      crediario.textContent = "Ou faça também uma simulação com nosso Crediário entrando em contato pelo Whatsapp!";
+      crediario.classList.add("crediario");
+
       const valorParcela = Math.floor((preco / 5) * 100) / 100;
       const valorParcelaFormatado = valorParcela.toLocaleString('pt-BR', {
         minimumFractionDigits: 2,

@@ -44,7 +44,7 @@
 }
 
 .manual-btn {
-    border: 2px solid #fff;
+    border: 2px solid #3356c9;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
@@ -56,8 +56,8 @@
 }
 
 .manual-btn:hover {
-    background: #fff;
-    color: #fff;
+    background: #3356c9;
+    color: #3356c9;
 }
 
 #radio1:checked~.first {
@@ -69,7 +69,7 @@
 }
 
 .navigation-auto div {
-    border: 2px solid #fff;
+    border: 2px solid #3356c9;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
@@ -89,11 +89,11 @@
 }
 
 #radio1:checked~.navigation-auto .auto-btn1 {
-    background: #fff;
+    background: #3356c9;
 }
 
 #radio2:checked~.navigation-auto .auto-btn2 {
-    background: #fff;
+    background: #3356c9;
 }
 
 /* Responsividade */
@@ -110,5 +110,10 @@
     }
     .slide img {
         height: 230px; /* Reduz a altura para dispositivos menores */
+    }
+
+    .manual-navigation,
+    .navigation-auto {
+        display: none;
     }
 }

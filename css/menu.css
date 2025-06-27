@@ -1,12 +1,14 @@
 /* Container principal do menu */
 .element-menu-category {
     background-color: #0a2da3;
-    padding: 10px 0; /* mais espaço lateral */
+    padding: 10px 0;
+    /* mais espaço lateral */
 
 }
 
 .menu-category-inner {
-    max-width: 1200px; /* ou o valor que você quiser */
+    max-width: 1200px;
+    /* ou o valor que você quiser */
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
@@ -102,19 +104,16 @@
     padding: 5px 8px;
 }
 
-.menu-category-list ul li a {
-    padding-left: 20px;
-    /* Se precisar de um leve espaçamento, ajuste aqui */
-}
-
 .menu-category-list ul a:hover {
-    background: linear-gradient(90deg, #FCE40E, #E92D4C, #61C4F1, #C6DD5A, #FC8A26);
+    background: linear-gradient(90deg, #ffeb3b, #ff4081, #2196f3, #8bc34a, #ff9800);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
-    transition: 0.5s ease;
+    font-size: 15px;
+    transition: 0.3s ease;
 }
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -130,7 +129,13 @@
         border: none;
         cursor: pointer;
         z-index: 1000;
-        color: #02696b;
+        color: #0a2da3;
+    }
+
+    .menu-category-list {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     /* Menu principal */
@@ -146,7 +151,7 @@
         position: absolute;
         top: 55px;
         left: 0;
-        background: #0a2da3;
+        background: #1841c7;
         text-align: center;
         padding: 0;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -213,7 +218,7 @@
     .menu-category-list>li {
         width: 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: 2px 0;
     }
 
     /* Submenu */
@@ -231,7 +236,7 @@
         transform: translateY(-10px);
         overflow: hidden;
         top: auto;
-        left: 0;
+        left: 0%;
         box-shadow: none;
         max-height: 0;
         text-align: center;
@@ -254,15 +259,11 @@
         width: 100%;
         padding: 5px 0;
         text-align: center;
+        align-items: center;
     }
 
     .menu-category-list ul a {
         padding: 8px 0;
-        font-size: 16px;
-    }
-
-    .menu-category-list ul a:hover {
-        background: #09b6bc;
     }
 }
 

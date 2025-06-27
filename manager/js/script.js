@@ -1,54 +1,71 @@
 const subcategoriasPorCategoria = {
-    quarto: [
-        "guarda-roupas",
-        "sapateira-multiuso",
-        "beliche",
-        "comodas",
-        "cabeceiras_casal",
-        "cabeceira_solteiro",
-        "mesa_de_cabeceira",
-        "penteadeira",
-        "camas_casal",
-        "colchao",
-        "bases_box",
-        "cama_de_solteiro",
-        "infantil"
+    brinquedos: [
+        "brinquedos",
+        "carrinhos_de_passeio"
     ],
     cozinha: [
-        "balcao",
-        "banqueta",
-        "bancadas_para_cooktop",
+        "armarios_de_parede",
+        "balcoes",
+        "bancadas",
         "fruteiras",
-        "cozinhas_kits"
-    ],
-    sala_de_jantar: [
-        "mesas",
-        "decoracao"
-    ],
-    escritorio: [
-        "mesas_escrivaninha",
-        "cadeiras",
-        "livreiro_multiuso"
-    ],
-    sala_de_estar: [
-        "sofas",
-        "paineis",
-        "estantes",
-        "racks",
-        "racks_com_paineis",
-        "poltronas",
-        "mesa_de_centro_apoios"
+        "kits"
     ],
     eletrodomesticos: [
+        "climatizadores",
         "fogoes",
-        "fogoes_cooktop",
-        "lavadoras",
         "fornos_eletricos",
-        "climatizadores"
+        "lavadoras",
+        "utensilios_domesticos",
+        "ventiladores"
+    ],
+    escritorio: [
+        "armarios",
+        "cadeiras",
+        "mesas"
+    ],
+    quarto_adulto: [
+        "camas",
+        "colchoes",
+        "comodas",
+        "guarda-roupas",
+        "mesa_de_cabeceira",
+        "sapateira-multiuso"
+    ],
+    quarto_infantil: [
+        "ambientes",
+        "bercos",
+        "camas_infantis",
+        "colchoes_infantil",
+        "comodas",
+        "guarda-roupas_infantil",
+        "penteadeiras_infantis",
+        "poltrona_infantis"
+    ],
+    sala_de_estar: [
+        "estantes",
+        "estofados",
+        "homes",
+        "mesa_de_centro",
+        "paineis",
+        "racks"
+    ],
+    sala_de_jantar: [
+        "mesas"
     ]
 };
 
-const categoriaSelect = document.getElementById("categoria");
+const categoriaSelect = document.getElementById('categoria');
+
+// Obter as chaves (categorias) ordenadas
+const categoriasOrdenadas = Object.keys(subcategoriasPorCategoria).sort();
+
+categoriasOrdenadas.forEach(categoria => {
+  const option = document.createElement('option');
+  option.value = categoria;
+  option.textContent = categoria.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  categoriaSelect.appendChild(option);
+});
+
 const subcategoriaSelect = document.getElementById("subcategoria");
 
 categoriaSelect.addEventListener("change", () => {

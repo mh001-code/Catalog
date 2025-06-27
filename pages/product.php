@@ -45,6 +45,7 @@ error_reporting(E_ALL);?>
             <div class="preco-e-aviso">
                 <p id="preco-produto"></p>
                 <p id="aviso-parcelamento" class="aviso-parcelamento"></p>
+                <p id="crediario" class="crediario"></p>
             </div>
         </div>
 

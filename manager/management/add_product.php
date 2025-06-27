@@ -47,12 +47,6 @@ if (!isset($_SESSION['logado'])) {
       <label for="categoria">Categoria:</label>
       <select id="categoria" name="categoria" required>
         <option value="">Selecione...</option>
-        <option value="quarto">Quarto</option>
-        <option value="cozinha">Cozinha</option>
-        <option value="sala_de_jantar">Sala de Jantar</option>
-        <option value="escritorio">Escritório</option>
-        <option value="sala_de_estar">Sala de Estar</option>
-        <option value="eletrodomesticos">Eletrodomésticos</option>
       </select>
 
 

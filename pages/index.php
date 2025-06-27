@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gilmar Móveis</title>
+    <title>Baby-di Móveis</title>
     <link rel="stylesheet" href="/Catalog/css/styles.css">
     <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
 
@@ -28,11 +28,11 @@
             <input type="radio" name="radio-btn" id="radio2">
 
             <div class="slide first">
-                <img src='../img/banner_images/Entrega_montagem.png' alt="image 1">
+                <img src='/Catalog/img/banner_images/Copilot_20250620_181933.png' alt="image 1">
             </div>
 
             <div class="slide">
-                <img src='../img/banner_images/Parcelamento.png' alt="image 2">
+                <img src='/Catalog/img/banner_images/Copilot_20250620_182029.png' alt="image 2">
             </div>
 
             <div class="navigation-auto">

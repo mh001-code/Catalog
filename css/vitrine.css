@@ -1,25 +1,32 @@
 .vitrine-titulo {
+    font-family: 'Baloo 2', cursive;
+    font-size: 30px;
+    font-weight: 900; /* mais espessa */
     text-align: left;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
     margin-top: 40px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    /* Ajuste o valor conforme necessário */
+    margin-bottom: 30px;
+    margin-left: 30px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+
+     background: linear-gradient(180deg, #0a2da3, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15); /* mais suave e elegante */
 }
 
+
 .carousel-container {
-    max-width: 90%;
+    max-width: 95%;
     /* Define um limite de largura para o carrossel */
     margin: 0 auto;
     /* Centraliza na tela */
     overflow: hidden;
     /* Evita que o conteúdo ultrapasse */
     position: relative;
-
 }
 
 .carousel {
@@ -37,10 +44,10 @@
     flex: 0 0 auto;
     width: 200px;
     text-align: center;
-    background: #faffff;
+    background: linear-gradient(90deg, #d9e4f5, #f8f8f8);
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,9 +56,9 @@
     /* Alinha os produtos ao rolar */
     margin-top: 15px;
     margin-bottom: 10px;
-
     /* Efeito de transição suave */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #d0d8f5; /* borda sutil */
 }
 
 .product:hover {
@@ -68,9 +75,8 @@
     /* Define uma altura fixa para todas as imagens */
     object-fit: cover;
     /* Ajusta a imagem para preencher o espaço sem distorcer */
-    border-radius: 8px;
-
-
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* leve sombra para destaque */
 }
 
 .product h2,
@@ -102,30 +108,38 @@ h3 {
     font-weight: bold;
 }
 
+.product .crediario {
+    font-size: 13px;
+    color: #0a2da3;
+    margin-top: 10px;
+}
+
 .btn-ver-mais {
     display: inline-flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    /* Centraliza horizontalmente */
-    background-color: #88c3c5;
-    color: white;
+    background: linear-gradient(145deg, #a7c5f9, #bfd8ff);
+    color:#ffff;
     padding: 0.6rem 1rem;
     border: 2px solid rgba(45, 80, 78, 0.2);
-    border-radius: 8px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
     transition: transform 0.3s ease;
     width: 75%;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 10px;
 }
 
 .btn-ver-mais:hover {
-    background-color: #039396;
-    border-color: rgb(2, 119, 119);
+    background: linear-gradient(145deg, #5d94f5, #7aaaf9);
+    border-color: rgb(79, 87, 211);
     /* nova cor da borda no hover */
     transform: scale(1.05);
     /* Efeito de zoom nos ícones */
+    cursor: pointer;
 }
 
 .img-indisponivel {
@@ -134,7 +148,7 @@ h3 {
 }
 
 .btn-ver-mais.indisponivel {
-    background-color: grey;
+    filter: grayscale(100%) !important;
     cursor: not-allowed;
     opacity: 0.6;
     display: block;
@@ -284,6 +298,10 @@ h3 {
         /* Reduz o tamanho do acréscimo */
     }
 
+    .product .crediario {
+        font-size: 12px;
+    }
+
     .prev-btn,
     .next-btn {
         padding: 8px;
@@ -353,6 +371,10 @@ h3 {
     .product .acrescimo {
         font-size: 8px;
         /* Reduz ainda mais o tamanho do acréscimo */
+    }
+
+    .product .crediario {
+        font-size: 10px;
     }
 
     .prev-btn,
