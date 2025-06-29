@@ -88,6 +88,31 @@
     transform: scale(1.05);
     /* Efeito de zoom nos ícones */
 }
+.crediario-link {
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    /* espaçamento abaixo do botão */
+}
+
+.btn-crediario {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0a2da3;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+.btn-crediario:hover {
+    background-color: #082583;
+    transform: scale(1.05);
+    /* Efeito de zoom nos ícones */
+}
 
 .icon-whatsapp {
     width: 20px;
@@ -114,7 +139,7 @@
     font-weight: bold;
     font-size: 13.9px;
     color: #0a2da3;
-    margin-top: 45px;
+    margin-top: 25px;
 }
 
 .galeria-imagens {
@@ -459,6 +484,10 @@
         width: 16px;
         /* Menor tamanho do ícone */
         height: 16px;
+    }
+
+    .crediario-link {
+    text-align: center;
     }
 
     .preco-e-aviso {

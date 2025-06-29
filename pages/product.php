@@ -49,6 +49,7 @@ error_reporting(E_ALL);?>
             </div>
         </div>
 
+        <div id="crediario-link" class="crediario-link"></div>
         <div id="whatsapp-link" class="whatsapp-link"></div>
 
 

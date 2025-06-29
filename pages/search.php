@@ -78,7 +78,7 @@ try {
                             <p class="preco">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
                             <p class="parcelamento">ou em 5x de R$ <?= $valorParcela; ?></p>
                             <span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>
-                            <p class="crediario">Simule no Crediário!</p>
+                            <p class="crediario">Ou em até 12x no Crediário!</p>
                             <p class="indisponivel-text"></p>
                             <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= $slug ?>">
                                 <button class="btn-ver-mais">Detalhes</button>

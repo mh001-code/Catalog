@@ -49,7 +49,7 @@ function slugify($text)
 
     <!-- Seção de Destaques -->
     <section class="vitrine">
-        <h2 class="vitrine-titulo">Destaques</h2>
+        <h2 class="vitrine-titulo">Novidades</h2>
         <div class="carousel-container">
             <button class="prev-btn">&#10094;</button>
             <div class="carousel">
@@ -75,7 +75,7 @@ function slugify($text)
                             <p class="preco"><?= 'R$ ' . number_format($produto['preco'], 2, ',', '.'); ?></p>
                             <p class="parcelamento">ou em 5x de R$ <?= $valorParcela; ?></p>
                             <span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>
-                            <p class="crediario">Simule no Crediário!</p>
+                            <p class="crediario">Ou em até 12x no Crediário!</p>
                             <p class="indisponivel-text"></p>
                             <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
                                 <button class="btn-ver-mais">Detalhes</button>
@@ -88,7 +88,7 @@ function slugify($text)
         </div>
 
         <!-- Seção de Mais Vendidos -->
-        <h2 class="vitrine-titulo">Mais Vendidos</h2>
+        <h2 class="vitrine-titulo">Os mais desejados</h2>
         <div class="carousel-container">
             <button class="prev-btn">&#10094;</button>
             <div class="carousel">
@@ -114,7 +114,7 @@ function slugify($text)
                             <p class="preco"><?= 'R$ ' . number_format($produto['preco'], 2, ',', '.'); ?></p>
                             <p class="parcelamento">ou em 5x de R$ <?= $valorParcela; ?></p>
                             <span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>
-                            <p class="crediario">Simule no Crediário!</p>
+                            <p class="crediario">Ou em até 12x no Crediário!</p>
                             <p class="indisponivel-text"></p>
                             <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
                                 <button class="btn-ver-mais">Detalhes</button>

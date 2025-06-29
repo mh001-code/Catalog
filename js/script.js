@@ -58,7 +58,6 @@ function closeSubmenu(submenu) {
     submenu.style.maxHeight = null; // Remove a altura para fechar
 }
 
-
 let count = 1;
 document.getElementById("radio1").checked = true;
 

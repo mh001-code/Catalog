@@ -97,7 +97,7 @@ function slugify(texto) {
       <p class="parcelamento">ou em 5x de R$ ${valorParcelaFormatado}</p>
     `;
     let acrescimoHTML = `<span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>`;
-    let crediarioHTML = '<p class = "crediario">Simule no Crediário!</p>';
+    let crediarioHTML = '<p class = "crediario">Ou em até 12x no Crediário!</p>';
     let nomeSlug = slugify(produto.nome);
 
     let detalhesHTML = `<a href="/Catalog/produto/${produto.id}/${nomeSlug}">
@@ -111,7 +111,7 @@ function slugify(texto) {
       imgClass = "img-indisponivel";
       precoHTML = "";  // Remove o preço
       acrescimoHTML = "";
-      let crediarioHTML;
+      crediarioHTML = "";
       indisponivelTexto = `<p class="indisponivel-text">Produto Indisponível</p>`;
       detalhesHTML = `<button class="btn-ver-mais indisponivel" disabled>Indisponível</button>`;
     } else {

@@ -40,6 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
       `;
 
+      const crediarioDiv = document.getElementById("crediario-link");
+      const crediarioMensagem = `Olá, tenho interesse em fazer a simulação no Crediário do produto "${produto.nome}".`;
+      const linkCrediario = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(crediarioMensagem)}`;
+
+      crediarioDiv.innerHTML = `
+      <a href="${linkCrediario}" target="_blank" class="btn-crediario">
+      💳 Simular Crediário!
+      </a>
+      `;
+
       if (!produto || !produto.nome) {
         document.body.innerHTML = "<p>Produto não encontrado.</p>";
         return;
@@ -178,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
       aviso.classList.add("aviso-parcelamento");
 
       const crediario = document.getElementById("crediario");
-      crediario.textContent = "Ou faça também uma simulação com nosso Crediário entrando em contato pelo Whatsapp!";
+      crediario.textContent = "Ou em até 12x no Crediário!"
       crediario.classList.add("crediario");
 
       const valorParcela = Math.floor((preco / 5) * 100) / 100;
