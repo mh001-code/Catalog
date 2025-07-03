@@ -41,7 +41,7 @@ function slugify($text)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gilmar Móveis</title>
+    <title>Baby-di Móveis</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 

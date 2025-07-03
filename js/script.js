@@ -1,9 +1,23 @@
 function toggleMenu() {
     const menu = document.querySelector('.menu-category-inner');
-    console.log("Toggle menu clicked"); // Log para verificar se a função é chamada
+    const botaoMenu = document.querySelector('.menu-icon');
+
+    // Alterna visibilidade do menu
     menu.classList.toggle('active');
-    console.log("Menu active class toggled:", menu.classList.contains('active')); // Log para verificar se a classe 'active' está sendo aplicada
+    botaoMenu.classList.toggle('active');
+
+    // Se o menu foi fechado, também fechamos todos os submenus
+    if (!menu.classList.contains('active')) {
+        const allSubmenus = document.querySelectorAll(".menu-category-list ul");
+
+        allSubmenus.forEach(submenu => {
+            closeSubmenu(submenu); // fecha todos
+        });
+    }
+
+    console.log("Toggle menu clicked. Menu is active:", menu.classList.contains('active'));
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     if (window.innerWidth <= 768) { // Somente em telas menores ou iguais a 768px
@@ -45,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
 
 function openSubmenu(submenu) {
     console.log("Opening submenu:", submenu); // Log para verificar quando o submenu é aberto
@@ -166,3 +182,51 @@ document.addEventListener("DOMContentLoaded", function () {
         }, { passive: false });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("SearchFilter");
+    const sugestoes = document.getElementById("sugestoes");
+
+    input.addEventListener("input", async () => {
+        const query = input.value.trim();
+
+        if (query.length < 2) {
+            sugestoes.innerHTML = '';
+            sugestoes.classList.add('vazio'); // Adiciona classe para esconder borda
+            return;
+        }
+
+        const response = await fetch(`/Catalog/php/search_suggestion.php?q=${encodeURIComponent(query)}`);
+        const dados = await response.json();
+
+        sugestoes.innerHTML = '';
+
+        if (dados.length === 0) {
+            sugestoes.classList.add('vazio'); // Sem resultados
+            return;
+        }
+
+        sugestoes.classList.remove('vazio'); // Resultados encontrados
+
+        dados.forEach(produto => {
+            const item = document.createElement("div");
+            item.textContent = produto.nome;
+            item.addEventListener("click", () => {
+                input.value = produto.nome;
+                sugestoes.innerHTML = '';
+                sugestoes.classList.add('vazio'); // Esconde sugestões após o clique
+            });
+            sugestoes.appendChild(item);
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!sugestoes.contains(e.target) && e.target !== input) {
+            sugestoes.innerHTML = '';
+            sugestoes.classList.add('vazio'); // Fecha dropdown ao clicar fora
+        }
+    });
+});
+
+
+

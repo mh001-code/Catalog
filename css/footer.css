@@ -146,9 +146,9 @@ footer {
     }
 
     .social-icon img {
-        width: 30px;
+        width: 40px;
         /* Reduz o tamanho dos ícones */
-        height: 30px;
+        height: 40px;
     }
 
     .informacoes-adicionais p {
@@ -209,9 +209,9 @@ footer {
     }
 
     .social-icon img {
-        width: 25px;
+        width: 35px;
         /* Ícones menores */
-        height: 25px;
+        height: 35px;
     }
 
     .informacoes-adicionais p {

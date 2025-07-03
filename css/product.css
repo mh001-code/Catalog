@@ -345,11 +345,6 @@
         margin-bottom: 10px;
     }
 
-    #navegacao-categorias a {
-        color: #039396;
-        text-decoration: none;
-    }
-
     #navegacao-categorias a:hover {
         text-decoration: underline;
     }

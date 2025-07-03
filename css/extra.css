@@ -22,7 +22,7 @@
 /* Subtítulos */
 .extra h2 {
     font-size: 1.6em;
-    color: #009688;
+    color: #0a2da3;
     margin-top: 40px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -53,13 +53,16 @@
 
 /* Links dentro da lista */
 .extra a {
-    color: #009688;
+    color: #0a2da3;
     text-decoration: none;
     font-weight: bold;
+    display: inline-block; /* Necessário para aplicar transform */
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .extra a:hover {
-    text-decoration: underline;
+    color: #082583;
+    transform: scale(1.05);
 }
 
 /* Separador Opcional */

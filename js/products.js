@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tituloPagina += " - " + formatarTitulo(subcategoria);
   }
 
-  document.title = `${tituloPagina} - Gilmar Móveis`;
+  document.title = `${tituloPagina} - Baby-di Móveis`;
   titulo.textContent = tituloPagina;
 
   // Buscar produtos do PHP

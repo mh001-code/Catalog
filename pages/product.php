@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gilmar Móveis</title>
+    <title>Baby-di Móveis</title>
     <link rel="stylesheet" href="/Catalog/css/styles.css">
     <link rel="icon" href="/Catalog/img/icons/favicon1.png" type="image/x-icon">
 </head>

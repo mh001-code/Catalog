@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(produto => {
       const whatsappDiv = document.getElementById("whatsapp-link");
-      const numeroWhatsApp = "5562993122941";
+      const numeroWhatsApp = "556298337222";
       const mensagem = `Olá, tenho interesse no produto "${produto.nome}". Poderia me dar mais detalhes?`;
       const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (produto.imagem_3) imagens.push(produto.imagem_3);
       if (produto.imagem_4) imagens.push(produto.imagem_4);
 
-      document.title = produto.nome + " - Gilmar Móveis";
+      document.title = produto.nome + " - Baby-di Móveis";
       document.getElementById("nome-produto").textContent = produto.nome;
 
       const imagemPrincipal = document.getElementById("imagem-principal");
