@@ -141,7 +141,7 @@ nav ul li a {
 }
 
 .logo img {
-    max-width: 220px;
+    max-width: 160px;
     /* Ajuste o tamanho do logo conforme necessário */
     height: auto;
     transition: transform 0.3s ease;

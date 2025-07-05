@@ -1,6 +1,10 @@
 RewriteEngine On
 RewriteBase /Catalog/
 
+# Evita reescrita para arquivos reais (ex: js, css, imagens, php diretos)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
 # Página Inicial
 RewriteRule ^Home/?$ pages/index.php [L,QSA]
 

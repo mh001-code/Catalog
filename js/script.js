@@ -187,45 +187,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("SearchFilter");
     const sugestoes = document.getElementById("sugestoes");
 
-    input.addEventListener("input", async () => {
-        const query = input.value.trim();
+    if (input && sugestoes) {
+        input.addEventListener("input", async () => {
+            const query = input.value.trim();
 
-        if (query.length < 2) {
-            sugestoes.innerHTML = '';
-            sugestoes.classList.add('vazio'); // Adiciona classe para esconder borda
-            return;
-        }
-
-        const response = await fetch(`/Catalog/php/search_suggestion.php?q=${encodeURIComponent(query)}`);
-        const dados = await response.json();
-
-        sugestoes.innerHTML = '';
-
-        if (dados.length === 0) {
-            sugestoes.classList.add('vazio'); // Sem resultados
-            return;
-        }
-
-        sugestoes.classList.remove('vazio'); // Resultados encontrados
-
-        dados.forEach(produto => {
-            const item = document.createElement("div");
-            item.textContent = produto.nome;
-            item.addEventListener("click", () => {
-                input.value = produto.nome;
+            if (query.length < 2) {
                 sugestoes.innerHTML = '';
-                sugestoes.classList.add('vazio'); // Esconde sugestões após o clique
-            });
-            sugestoes.appendChild(item);
-        });
-    });
+                sugestoes.classList.add('vazio');
+                return;
+            }
 
-    document.addEventListener("click", (e) => {
-        if (!sugestoes.contains(e.target) && e.target !== input) {
+            const response = await fetch(`/Catalog/php/search_suggestion.php?q=${encodeURIComponent(query)}`);
+            const dados = await response.json();
+
             sugestoes.innerHTML = '';
-            sugestoes.classList.add('vazio'); // Fecha dropdown ao clicar fora
-        }
-    });
+
+            if (dados.length === 0) {
+                sugestoes.classList.add('vazio');
+                return;
+            }
+
+            sugestoes.classList.remove('vazio');
+
+            dados.forEach(produto => {
+                const item = document.createElement("div");
+                item.textContent = produto.nome;
+                item.addEventListener("click", () => {
+                    input.value = produto.nome;
+                    sugestoes.innerHTML = '';
+                    sugestoes.classList.add('vazio');
+                });
+                sugestoes.appendChild(item);
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!sugestoes.contains(e.target) && e.target !== input) {
+                sugestoes.innerHTML = '';
+                sugestoes.classList.add('vazio');
+            }
+        });
+    }
+
 });
 
 
