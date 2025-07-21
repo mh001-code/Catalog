@@ -58,25 +58,43 @@ if (!isset($_SESSION['logado'])) {
             <input type="file" id="upload-imagem_3">
             <input type="hidden" id="imagem_3">
             <img id="preview-imagem_3" style="max-width: 150px; margin-top: 5px; display: none;">
-            <label><input type="checkbox" id="remover-imagem_2"> Remover imagem</label>
+            <label><input type="checkbox" id="remover-imagem_3"> Remover imagem</label>
 
 
             <label>Imagem 4:</label>
             <input type="file" id="upload-imagem_4">
             <input type="hidden" id="imagem_4">
             <img id="preview-imagem_4" style="max-width: 150px; margin-top: 5px; display: none;">
-            <label><input type="checkbox" id="remover-imagem_2"> Remover imagem</label>
+            <label><input type="checkbox" id="remover-imagem_4"> Remover imagem</label>
+
+            <label>Imagem 5:</label>
+            <input type="file" id="upload-imagem_5">
+            <input type="hidden" id="imagem_5">
+            <img id="preview-imagem_5" style="max-width: 150px; margin-top: 5px; display: none;">
+            <label><input type="checkbox" id="remover-imagem_5"> Remover imagem</label>
+
+            <label>Imagem 6:</label>
+            <input type="file" id="upload-imagem_6">
+            <input type="hidden" id="imagem_6">
+            <img id="preview-imagem_6" style="max-width: 150px; margin-top: 5px; display: none;">
+            <label><input type="checkbox" id="remover-imagem_6"> Remover imagem</label>
+
+            <label>Imagem 7:</label>
+            <input type="file" id="upload-imagem_7">
+            <input type="hidden" id="imagem_7">
+            <img id="preview-imagem_7" style="max-width: 150px; margin-top: 5px; display: none;">
+            <label><input type="checkbox" id="remover-imagem_7"> Remover imagem</label>
+
+            <label>Imagem 8:</label>
+            <input type="file" id="upload-imagem_8">
+            <input type="hidden" id="imagem_8">
+            <img id="preview-imagem_8" style="max-width: 150px; margin-top: 5px; display: none;">
+            <label><input type="checkbox" id="remover-imagem_8"> Remover imagem</label>
 
 
             <label for="categoria">Categoria:</label>
             <select id="categoria" name="categoria" required>
                 <option value="">Selecione...</option>
-                <option value="quarto">Quarto</option>
-                <option value="cozinha">Cozinha</option>
-                <option value="sala_de_jantar">Sala de Jantar</option>
-                <option value="escritorio">Escritório</option>
-                <option value="sala_de_estar">Sala de Estar</option>
-                <option value="eletrodomesticos">Eletrodomésticos</option>
             </select>
 
 
@@ -84,11 +102,9 @@ if (!isset($_SESSION['logado'])) {
             <select id="subcategoria" name="subcategoria" required>
                 <option value="">Selecione uma categoria primeiro</option>
             </select>
-            <option value="">Selecione uma categoria primeiro</option>
-            </select>
-            <label><input type="checkbox" id="destaque" /> Destaque</label>
-            <label><input type="checkbox" id="mais_vendido" /> Mais Vendido</label>
-            <label><input type="checkbox" id="indisponivel" /> Indisponível</label>
+            <label><input type="checkbox" id="destaque" name="destaque"> Novidades 🔥</label>
+            <label><input type="checkbox" id="mais_vendido" name="mais_vendido"> Os Mais Desejados 👑</label>
+            <label><input type="checkbox" id="indisponivel" name="indisponivel"> Indisponível ❌</label>
 
             <button type="submit">Salvar Alterações</button>
 
@@ -102,7 +118,7 @@ if (!isset($_SESSION['logado'])) {
         </div>
 
 
-        <p id="mensagem"></p>
+        <p id="mensage"></p>
     </div>
     <script src="/Catalog/manager/js/edit_product.js"></script>
     <script src="/Catalog/manager/js/script.js"></script>

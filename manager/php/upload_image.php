@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 // Caminho absoluto da pasta de destino
-$targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Catalog/img/product_images/';
+$targetDir = $_SERVER['DOCUMENT_ROOT'] . '/catalog/img/product_images/';
 
 // Cria a pasta se não existir
 if (!is_dir($targetDir)) {
@@ -46,8 +46,8 @@ $targetFilePath = $targetDir . $uniqueName;
 
 // Move o arquivo para o diretório correto
 if (move_uploaded_file($fileTmpName, $targetFilePath)) {
-    // Caminho relativo para salvar no banco e usar no site
-    $relativePath = '/Catalog/img/product_images/' . $uniqueName;
+    // Caminho relativo para salvar no banco (SEM barra inicial)
+    $relativePath = '/catalog/img/product_images/' . $uniqueName;
     echo json_encode(['success' => true, 'filename' => $relativePath]);
 } else {
     echo json_encode(['success' => false, 'message' => 'Falha ao salvar a imagem.']);

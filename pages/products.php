@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baby-di Móveis</title>
+    <title>Baby-di Magazine</title>
     <link rel="stylesheet" href="/Catalog/css/styles.css">
     <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
 </head>

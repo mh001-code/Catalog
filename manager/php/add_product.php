@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 include '/xampp/htdocs/Catalog/php/conection.php';
 
 function salvarImagem($arquivo) {
-    $pastaRelativa = '/img/product_images/';
+    $pastaRelativa = '/Catalog/img/product_images/';
     $pastaAbsoluta = $_SERVER['DOCUMENT_ROOT'] . $pastaRelativa;
 
     // Garante que a pasta existe
@@ -39,11 +39,15 @@ $imagem = salvarImagem($_FILES['imagem']);
 $imagem_2 = salvarImagem($_FILES['imagem_2']);
 $imagem_3 = salvarImagem($_FILES['imagem_3']);
 $imagem_4 = salvarImagem($_FILES['imagem_4']);
+$imagem_5 = salvarImagem($_FILES['imagem_5']);
+$imagem_6 = salvarImagem($_FILES['imagem_6']);
+$imagem_7 = salvarImagem($_FILES['imagem_7']);
+$imagem_8 = salvarImagem($_FILES['imagem_8']);
 
 try {
     $stmt = $pdo->prepare("INSERT INTO produtos 
-        (nome, descricao, preco, imagem, imagem_2, imagem_3, imagem_4, categoria, subcategoria, destaque, mais_vendido, indisponivel)
-        VALUES (:nome, :descricao, :preco, :imagem, :imagem_2, :imagem_3, :imagem_4, :categoria, :subcategoria, :destaque, :mais_vendido, :indisponivel)");
+        (nome, descricao, preco, imagem, imagem_2, imagem_3, imagem_4, imagem_5, imagem_6, imagem_7, imagem_8, categoria, subcategoria, destaque, mais_vendido, indisponivel)
+        VALUES (:nome, :descricao, :preco, :imagem, :imagem_2, :imagem_3, :imagem_4, :imagem_5, :imagem_6, :imagem_7, :imagem_8, :categoria, :subcategoria, :destaque, :mais_vendido, :indisponivel)");
 
     $stmt->execute([
         ':nome' => $nome,
@@ -53,6 +57,10 @@ try {
         ':imagem_2' => $imagem_2,
         ':imagem_3' => $imagem_3,
         ':imagem_4' => $imagem_4,
+        ':imagem_5' => $imagem_5,
+        ':imagem_6' => $imagem_6,
+        ':imagem_7' => $imagem_7,
+        ':imagem_8' => $imagem_8,
         ':categoria' => $categoria,
         ':subcategoria' => $subcategoria,
         ':destaque' => $destaque,

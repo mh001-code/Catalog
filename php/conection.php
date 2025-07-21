@@ -1,7 +1,7 @@
 <?php
 // Defina as configurações de conexão com o banco de dados
 $host = 'localhost';
-$dbname = 'gilmar_moveis';
+$dbname = 'baby_di_magazine';
 $user = 'root';
 $password = '';
 

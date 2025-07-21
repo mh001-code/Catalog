@@ -40,7 +40,7 @@ function carregarProduto(id) {
         .then(res => res.json())
         .then(produto => {
             if (!produto || !produto.id) {
-                document.getElementById('mensagem').textContent = 'Produto não encontrado.';
+                document.getElementById('mensage').textContent = 'Produto não encontrado.';
                 return;
             }
 
@@ -53,6 +53,10 @@ function carregarProduto(id) {
             document.getElementById('imagem_2').value = produto.imagem_2 || '';
             document.getElementById('imagem_3').value = produto.imagem_3 || '';
             document.getElementById('imagem_4').value = produto.imagem_4 || '';
+            document.getElementById('imagem_5').value = produto.imagem_5 || '';
+            document.getElementById('imagem_6').value = produto.imagem_6 || '';
+            document.getElementById('imagem_7').value = produto.imagem_7 || '';
+            document.getElementById('imagem_8').value = produto.imagem_8 || '';
 
             // Mostrar imagens atuais
             const mostrarPreview = (idImg, caminho) => {
@@ -83,7 +87,32 @@ function carregarProduto(id) {
             mostrarPreview('preview-imagem_2', caminhoImagem(produto.imagem_2));
             mostrarPreview('preview-imagem_3', caminhoImagem(produto.imagem_3));
             mostrarPreview('preview-imagem_4', caminhoImagem(produto.imagem_4));
+            mostrarPreview('preview-imagem_5', caminhoImagem(produto.imagem_5));
+            mostrarPreview('preview-imagem_6', caminhoImagem(produto.imagem_6));
+            mostrarPreview('preview-imagem_7', caminhoImagem(produto.imagem_7));
+            mostrarPreview('preview-imagem_8', caminhoImagem(produto.imagem_8));
 
+            toggleCheckboxRemover('remover-imagem', caminhoImagem(produto.imagem));
+            toggleCheckboxRemover('remover-imagem_2', caminhoImagem(produto.imagem_2));
+            toggleCheckboxRemover('remover-imagem_3', caminhoImagem(produto.imagem_3));
+            toggleCheckboxRemover('remover-imagem_4', caminhoImagem(produto.imagem_4));
+            toggleCheckboxRemover('remover-imagem_5', caminhoImagem(produto.imagem_5));
+            toggleCheckboxRemover('remover-imagem_6', caminhoImagem(produto.imagem_6));
+            toggleCheckboxRemover('remover-imagem_7', caminhoImagem(produto.imagem_7));
+            toggleCheckboxRemover('remover-imagem_8', caminhoImagem(produto.imagem_8));
+
+            function toggleCheckboxRemover(idCheckbox, caminhoImagem) {
+                const checkbox = document.getElementById(idCheckbox);
+                if (!checkbox) return;
+
+                const label = checkbox.parentElement;
+                if (caminhoImagem && caminhoImagem.trim() !== '') {
+                    label.style.display = 'inline-block';
+                } else {
+                    checkbox.checked = false;
+                    label.style.display = 'none';
+                }
+            }
 
             document.getElementById('categoria').value = produto.categoria;
             document.getElementById('categoria').dispatchEvent(new Event('change')); // força o carregamento
@@ -103,7 +132,7 @@ function carregarProduto(id) {
         })
         .catch(err => {
             console.error(err);
-            document.getElementById('mensagem').textContent = 'Erro ao buscar produto.';
+            document.getElementById('mensage').textContent = 'Erro ao buscar produto.';
         });
 }
 
@@ -143,6 +172,10 @@ document.getElementById('editar-form').addEventListener('submit', async function
         await uploadImagem('upload-imagem_2', 'imagem_2');
         await uploadImagem('upload-imagem_3', 'imagem_3');
         await uploadImagem('upload-imagem_4', 'imagem_4');
+        await uploadImagem('upload-imagem_5', 'imagem_5');
+        await uploadImagem('upload-imagem_6', 'imagem_6');
+        await uploadImagem('upload-imagem_7', 'imagem_7');
+        await uploadImagem('upload-imagem_8', 'imagem_8');
 
         const produto = {
             id: document.getElementById('id').value,
@@ -153,6 +186,10 @@ document.getElementById('editar-form').addEventListener('submit', async function
             imagem_2: document.getElementById('remover-imagem_2')?.checked ? '' : document.getElementById('imagem_2').value,
             imagem_3: document.getElementById('remover-imagem_3')?.checked ? '' : document.getElementById('imagem_3').value,
             imagem_4: document.getElementById('remover-imagem_4')?.checked ? '' : document.getElementById('imagem_4').value,
+            imagem_5: document.getElementById('remover-imagem_5')?.checked ? '' : document.getElementById('imagem_5').value,
+            imagem_6: document.getElementById('remover-imagem_6')?.checked ? '' : document.getElementById('imagem_6').value,
+            imagem_7: document.getElementById('remover-imagem_7')?.checked ? '' : document.getElementById('imagem_7').value,
+            imagem_8: document.getElementById('remover-imagem_8')?.checked ? '' : document.getElementById('imagem_8').value,
             categoria: document.getElementById('categoria').value,
             subcategoria: document.getElementById('subcategoria').value,
             destaque: document.getElementById('destaque').checked ? 1 : 0,
@@ -168,21 +205,21 @@ document.getElementById('editar-form').addEventListener('submit', async function
         });
 
         const data = await res.json();
-        document.getElementById('mensagem').textContent = data.message;
-        document.getElementById('mensagem').style.color = data.success ? 'green' : 'red';
+        document.getElementById('mensage').textContent = data.message;
+        document.getElementById('mensage').style.color = data.success ? 'green' : 'red';
         if (data.success) {
             limparFormulario(); // Limpa e oculta o formulário quando deu certo
         }
     } catch (err) {
-        document.getElementById('mensagem').textContent = err;
-        document.getElementById('mensagem').style.color = 'red';
+        document.getElementById('mensage').textContent = err;
+        document.getElementById('mensage').style.color = 'red';
     }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     const btnExcluir = document.getElementById('btn-excluir');
     const inputId = document.getElementById('id');
-    const mensagem = document.getElementById('mensagem');
+    const mensage = document.getElementById('mensage');
 
     btnExcluir.addEventListener('click', async () => {
         const produtoId = inputId.value;
@@ -203,19 +240,72 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (data.success) {
-                mensagem.textContent = 'Produto excluído com sucesso!';
-                mensagem.style.color = 'green';
+                mensage.textContent = 'Produto excluído com sucesso!';
+                mensage.style.color = 'green';
                 limparFormulario();
             } else {
-                mensagem.textContent = 'Erro ao excluir produto: ' + data.message;
-                mensagem.style.color = 'red';
+                mensage.textContent = 'Erro ao excluir produto: ' + data.message;
+                mensage.style.color = 'red';
             }
         } catch (error) {
-            mensagem.textContent = 'Erro na requisição: ' + error.message;
-            mensagem.style.color = 'red';
+            mensage.textContent = 'Erro na requisição: ' + error.message;
+            mensage.style.color = 'red';
         }
     });
+
+    // Função para atualizar preview de imagem ao selecionar novo arquivo
+    function atualizarPreview(inputId, previewId) {
+        const input = document.getElementById(inputId);
+        const preview = document.getElementById(previewId);
+
+        if (!input || !preview) return;
+
+        input.addEventListener('change', () => {
+            const file = input.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                preview.src = url;
+                preview.style.display = 'block';
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        });
+    }
+
+    // Inicializa previews para todos os inputs de imagem
+    atualizarPreview('upload-imagem', 'preview-imagem');
+    atualizarPreview('upload-imagem_2', 'preview-imagem_2');
+    atualizarPreview('upload-imagem_3', 'preview-imagem_3');
+    atualizarPreview('upload-imagem_4', 'preview-imagem_4');
+    atualizarPreview('upload-imagem_5', 'preview-imagem_5');
+    atualizarPreview('upload-imagem_6', 'preview-imagem_6');
+    atualizarPreview('upload-imagem_7', 'preview-imagem_7');
+    atualizarPreview('upload-imagem_8', 'preview-imagem_8');
 });
+
+
+function atualizarPreview(inputId, previewId) {
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    if (!input || !preview) return;
+
+    input.addEventListener('change', () => {
+        const file = input.files[0];
+        if (file) {
+            // Para forçar atualização mesmo se for a mesma imagem, limpamos URL anterior
+            if (preview.src) {
+                URL.revokeObjectURL(preview.src);
+            }
+            const url = URL.createObjectURL(file);
+            preview.src = url;
+            preview.style.display = 'block';
+        } else {
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+    });
+}
 
 function limparFormulario() {
     const form = document.getElementById('editar-form');
@@ -230,12 +320,20 @@ function limparFormulario() {
     document.getElementById('imagem_2').value = '';
     document.getElementById('imagem_3').value = '';
     document.getElementById('imagem_4').value = '';
+    document.getElementById('imagem_5').value = '';
+    document.getElementById('imagem_6').value = '';
+    document.getElementById('imagem_7').value = '';
+    document.getElementById('imagem_8').value = '';
 
     // Limpar inputs type="file"
-    ['upload-imagem', 'upload-imagem_2', 'upload-imagem_3', 'upload-imagem_4'].forEach(id => {
-        const inputFile = document.getElementById(id);
-        if (inputFile) inputFile.value = '';
+    ['remover-imagem', 'remover-imagem_2', 'remover-imagem_3', 'remover-imagem_4', 'remover-imagem_5', 'remover-imagem_6', 'remover-imagem_7', 'remover-imagem_8'].forEach(id => {
+        const checkbox = document.getElementById(id);
+        if (checkbox) {
+            checkbox.checked = false;
+            checkbox.parentElement.style.display = 'none';
+        }
     });
+
 
     // Limpar campo ID (se quiser esconder produto carregado)
     document.getElementById('id').value = '';
@@ -247,7 +345,7 @@ function limparFormulario() {
     form.style.display = 'none';
 
     setTimeout(() => {
-        document.getElementById('mensagem').textContent = '';
+        document.getElementById('mensage').textContent = '';
     }, 5000); // limpa após 5 segundos
 }
 

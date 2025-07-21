@@ -60,8 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (produto.imagem_2) imagens.push(produto.imagem_2);
       if (produto.imagem_3) imagens.push(produto.imagem_3);
       if (produto.imagem_4) imagens.push(produto.imagem_4);
+      if (produto.imagem_5) imagens.push(produto.imagem_5);
+      if (produto.imagem_6) imagens.push(produto.imagem_6);
+      if (produto.imagem_7) imagens.push(produto.imagem_7);
+      if (produto.imagem_8) imagens.push(produto.imagem_8);
 
-      document.title = produto.nome + " - Baby-di Móveis";
+      document.title = produto.nome + " - Baby-di Magazine";
       document.getElementById("nome-produto").textContent = produto.nome;
 
       const imagemPrincipal = document.getElementById("imagem-principal");
@@ -78,90 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
       imagemZoomada.style.position = "absolute";
       imagemZoomada.setAttribute("draggable", "false");
 
-      let isDragging = false;
-      let arrastou = false;
-      let startX = 0;
-      let startY = 0;
-      let initialLeft = 0;
-      let initialTop = 0;
+      let zoomLevel = 0;
+      const zoomScales = [1, 2]; // Pode ajustar conforme o quanto quer ampliar
 
-      imagemZoomada.addEventListener("mousedown", (e) => {
-        if (!imagemZoomada.classList.contains("zoomed")) return;
+      imagemZoomada.addEventListener("click", () => {
+        zoomLevel = (zoomLevel + 1) % zoomScales.length;
+        const scale = zoomScales[zoomLevel];
 
-        startX = e.clientX;
-        startY = e.clientY;
-        initialLeft = parseInt(imagemZoomada.style.left) || 0;
-        initialTop = parseInt(imagemZoomada.style.top) || 0;
-        isDragging = true;
-        arrastou = false;
-
-        imagemZoomada.style.cursor = "grabbing";
-
-        const onMouseMove = (moveEvent) => {
-          if (!isDragging) return;
-
-          const dx = moveEvent.clientX - startX;
-          const dy = moveEvent.clientY - startY;
-
-          if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
-            arrastou = true;
-          }
-
-          let newLeft = initialLeft + dx;
-          let newTop = initialTop + dy;
-
-          // ✅ Limites
-          const modalRect = modal.getBoundingClientRect();
-          const imgRect = imagemZoomada.getBoundingClientRect();
-
-          const maxLeft = 0;
-          const maxTop = 0;
-          const minLeft = modalRect.width - imgRect.width;
-          const minTop = modalRect.height - imgRect.height;
-
-          // Mantém dentro dos limites
-          if (newLeft < minLeft) newLeft = minLeft;
-          if (newLeft > maxLeft) newLeft = maxLeft;
-
-          if (newTop < minTop) newTop = minTop;
-          if (newTop > maxTop) newTop = maxTop;
-
-          imagemZoomada.style.left = `${newLeft}px`;
-          imagemZoomada.style.top = `${newTop}px`;
-        };
-
-        const onMouseUp = () => {
-          isDragging = false;
-          imagemZoomada.style.cursor = "grab";
-          document.removeEventListener("mousemove", onMouseMove);
-          document.removeEventListener("mouseup", onMouseUp);
-        };
-
-        document.addEventListener("mousemove", onMouseMove);
-        document.addEventListener("mouseup", onMouseUp);
-      });
-
-      imagemZoomada.addEventListener("click", (e) => {
-        if (arrastou) {
-          e.preventDefault();
-          return;
-        }
-
-        imagemZoomada.classList.toggle("zoomed");
-
-        if (imagemZoomada.classList.contains("zoomed")) {
-          imagemZoomada.style.width = "120%";
-          imagemZoomada.style.height = "100%";
-          imagemZoomada.style.left = "20";
-          imagemZoomada.style.top = "20";
-          imagemZoomada.style.cursor = "grab";
-        } else {
-          imagemZoomada.style.width = "";
-          imagemZoomada.style.height = "";
-          imagemZoomada.style.left = "";
-          imagemZoomada.style.top = "";
-          imagemZoomada.style.cursor = "";
-        }
+        imagemZoomada.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        imagemZoomada.style.cursor = scale === 2 ? "zoom-out" : "zoom-in";
       });
 
       const miniaturasContainer = document.querySelector(".miniaturas");
@@ -178,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const descricaoFormatada = produto.descricao
-        .replace(/([.?!:])\s*/g, '$1<br>')
+        .replace(/([.?!])\s*/g, '$1<br>')
         .replace(/\n/g, '<br>');
       document.getElementById("descricao-produto").innerHTML = descricaoFormatada;
 

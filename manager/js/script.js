@@ -29,6 +29,7 @@ const subcategoriasPorCategoria = {
         "comodas",
         "guarda-roupas",
         "mesa_de_cabeceira",
+        "penteadeiras",
         "sapateira-multiuso"
     ],
     quarto_infantil: [
@@ -38,6 +39,7 @@ const subcategoriasPorCategoria = {
         "colchoes_infantil",
         "comodas",
         "guarda-roupas_infantil",
+        "mini-camas",
         "penteadeiras_infantis",
         "poltrona_infantis"
     ],

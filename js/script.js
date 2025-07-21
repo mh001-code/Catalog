@@ -74,112 +74,178 @@ function closeSubmenu(submenu) {
     submenu.style.maxHeight = null; // Remove a altura para fechar
 }
 
-let count = 1;
-document.getElementById("radio1").checked = true;
+(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.querySelector('.slider-track');
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let index = 1;
+        let isTransitioning = false;
+        let interval;
 
-let interval = setInterval(nextImage, 5000);
+        function moveToSlide(i, transitionType = 'auto') {
+            isTransitioning = true;
 
-function nextImage() {
-    count++;
-    if (count > 2) {
-        count = 1;
-    }
-    document.getElementById("radio" + count).checked = true;
-}
+            if (transitionType === 'auto') {
+                track.style.transition = "transform 2s cubic-bezier(0.77, 0, 0.175, 1)";
+            } else if (transitionType === 'touch') {
+                track.style.transition = "transform 0.3s ease";
+            }
 
-// Função para resetar o temporizador ao clicar em um botão manualmente
-function resetTimer(selected) {
-    clearInterval(interval); // Para o intervalo atual
-    count = selected; // Define a imagem correta
-    document.getElementById("radio" + count).checked = true;
-    interval = setInterval(nextImage, 5000); // Reinicia o intervalo
-}
-
-// Adiciona eventos de clique para cada botão de rádio
-document.querySelectorAll('input[name="radio-btn"]').forEach((radio, index) => {
-    radio.addEventListener("click", function () {
-        resetTimer(index + 1);
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.carousel-container').forEach(container => {
-        const carousel = container.querySelector('.carousel');
-        const prevBtn = container.querySelector('.prev-btn');
-        const nextBtn = container.querySelector('.next-btn');
-
-        function checkScrollLimits() {
-            prevBtn.classList.toggle("disabled", carousel.scrollLeft === 0);
-            nextBtn.classList.toggle("disabled",
-                carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth
-            );
+            track.style.transform = `translateX(-${i * 100}%)`;
         }
 
-        // Adiciona evento ao passar o mouse sobre os botões
-        [prevBtn, nextBtn].forEach(btn => {
-            btn.addEventListener("mouseenter", () => {
-                if (btn.classList.contains("disabled")) {
-                    btn.style.cursor = "not-allowed"; // Ícone de bloqueio
-                } else {
-                    btn.style.cursor = "pointer"; // Ícone padrão de clique
+
+        function nextSlide() {
+            if (isTransitioning) return;
+            index++;
+            moveToSlide(index, 'auto');
+        }
+
+
+        function startAutoSlide() {
+            interval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(interval);
+        }
+
+        startAutoSlide();
+
+        track.addEventListener('transitionend', () => {
+            isTransitioning = false;
+
+            const currentSlide = slides[index];
+            const cloneType = currentSlide.dataset.clone;
+
+            if (cloneType) {
+                track.style.transition = "none";
+                if (cloneType === "first") {
+                    index = 1;
+                } else if (cloneType === "last") {
+                    index = totalSlides - 2;
                 }
-            });
-
-            btn.addEventListener("mouseleave", () => {
-                btn.style.cursor = ""; // Retorna ao padrão
-            });
-        });
-
-        // Verifica limites ao rolar
-        carousel.addEventListener("scroll", checkScrollLimits);
-
-        // Verifica ao carregar a página
-        checkScrollLimits();
-
-        let scrollAmount = 0;
-        const scrollStep = window.innerWidth < 768 ? 200 : 400;
-
-        prevBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
-        });
-
-        // Suporte a swipe em dispositivos móveis
-        let startX;
-
-        carousel.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-        });
-
-        carousel.addEventListener("touchmove", (e) => {
-            if (!startX) return;
-
-            const currentX = e.touches[0].clientX;
-            const diffX = startX - currentX;
-
-            if (Math.abs(diffX) > 50) { // Define um limite para evitar swipes acidentais
-                if (diffX > 0) {
-                    // Swipe para a esquerda → próxima imagem
-                    carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
-                } else {
-                    // Swipe para a direita → imagem anterior
-                    carousel.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-                }
-
-                startX = null; // Reseta após o swipe
+                track.style.transform = `translateX(-${index * 100}%)`;
             }
         });
 
-        carousel.addEventListener("touchend", () => {
-            startX = null;
+        track.addEventListener('mouseenter', stopAutoSlide);
+        track.addEventListener('mouseleave', startAutoSlide);
+
+        // === TOUCH HANDLING ===
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        const getTranslatePercent = () => -index * 100;
+
+        const setTranslatePercent = (percent, withTransition = false) => {
+            track.style.transition = withTransition ? 'transform 0.4s ease' : 'none';
+            track.style.transform = `translateX(${percent}%)`;
+        };
+
+        track.addEventListener('touchstart', (e) => {
+            if (isTransitioning) return;
+
+            stopAutoSlide();
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            currentX = startX;
+            track.style.transition = 'none';
+        }, { passive: false }); // <-- aqui
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+            const deltaX = currentX - startX;
+            const percent = getTranslatePercent() + (deltaX / window.innerWidth) * 100;
+            setTranslatePercent(percent);
+            e.preventDefault(); // <-- aqui
+        }, { passive: false }); // <-- aqui
+
+        track.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            const deltaX = currentX - startX;
+
+            if (slides[index].dataset.clone === "first") {
+                index = 1;
+                setTranslatePercent(-index * 100, false);
+                return;
+            }
+
+            if (slides[index].dataset.clone === "last") {
+                index = totalSlides - 2;
+                setTranslatePercent(-index * 100, false);
+                return;
+            }
+
+            if (deltaX > 50 && index > 0) {
+                index--;
+            } else if (deltaX < -50 && index < totalSlides - 1) {
+                index++;
+            }
+
+            moveToSlide(index, 'touch');
+            startAutoSlide();
+        }, { passive: false }); // <-- também pode adicionar
+
+        window.addEventListener('resize', () => {
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${index * 100}%)`;
+        });
+    });
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.carousel-container').forEach(container => {
+        const track = container.querySelector('.carousel');
+        const prevBtn = container.querySelector('.prev-btn');
+        const nextBtn = container.querySelector('.next-btn');
+
+        // Configura rolagem por clique nos botões
+        prevBtn.addEventListener("click", () => {
+            track.scrollBy({ left: -400, behavior: "smooth" });
         });
 
-        carousel.addEventListener("touchmove", (e) => {
-            // e.preventDefault(); // use com cautela, pois pode quebrar o scroll normal da página
-        }, { passive: false });
+        nextBtn.addEventListener("click", () => {
+            track.scrollBy({ left: 400, behavior: "smooth" });
+        });
+
+        // Lógica de arraste com mouse e toque
+        let isDragging = false;
+        let startX = 0;
+        let scrollStart = 0;
+
+        const startDrag = (clientX) => {
+            isDragging = true;
+            startX = clientX;
+            scrollStart = track.scrollLeft;
+            track.classList.add("dragging");
+        };
+
+        const onMove = (clientX) => {
+            if (!isDragging) return;
+            const distance = (clientX - startX);
+            track.scrollLeft = scrollStart - distance;
+        };
+
+        const endDrag = () => {
+            isDragging = false;
+            track.classList.remove("dragging");
+        };
+
+        // Eventos para mouse
+        track.addEventListener("mousedown", (e) => startDrag(e.pageX));
+        track.addEventListener("mousemove", (e) => onMove(e.pageX));
+        track.addEventListener("mouseup", endDrag);
+        track.addEventListener("mouseleave", endDrag);
+
+        // Eventos para touch
+        track.addEventListener("touchstart", (e) => startDrag(e.touches[0].pageX));
+        track.addEventListener("touchmove", (e) => onMove(e.touches[0].pageX));
+        track.addEventListener("touchend", endDrag);
     });
 });
 
@@ -212,11 +278,19 @@ document.addEventListener("DOMContentLoaded", () => {
             dados.forEach(produto => {
                 const item = document.createElement("div");
                 item.textContent = produto.nome;
+                item.style.cursor = 'pointer';
+
                 item.addEventListener("click", () => {
-                    input.value = produto.nome;
-                    sugestoes.innerHTML = '';
-                    sugestoes.classList.add('vazio');
+                    const slug = produto.nome
+                        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // remove acentos
+                        .toLowerCase()
+                        .replace(/[^a-z0-9\s-]/g, "") // remove caracteres especiais
+                        .replace(/\s+/g, "-") // substitui espaços por hífens
+                        .replace(/-+/g, "-") // evita múltiplos hífens
+
+                    window.location.href = `/Catalog/produto/${produto.id}/${slug}`;
                 });
+
                 sugestoes.appendChild(item);
             });
         });
@@ -228,8 +302,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
 });
+
+
 
 
 

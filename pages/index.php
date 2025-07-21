@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baby-di Móveis</title>
+    <title>Baby-di Magazine</title>
     <link rel="stylesheet" href="/Catalog/css/styles.css">
-    <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
+    <link rel="icon" href="/Catalog/img/icons/favicon1.png" type="image/x-icon">
 
 </head>
 
@@ -21,29 +21,18 @@
     </div>
 
 
-    <div class="slider">
+    <div class="slider-container">
+        <div class="slider-track">
+            <!-- Clone do último (antes do primeiro real) -->
+            <div class="slide" data-clone="last"><img src="/Catalog/img/banner_images/entrega.png" alt="Slide 3"></div>
 
-        <div class="slides">
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
+            <!-- Slides reais -->
+            <div class="slide"><img src="/Catalog/img/banner_images/parcelamento.png" alt="Slide 1"></div>
+            <div class="slide"><img src="/Catalog/img/banner_images/crediario.png" alt="Slide 2"></div>
+            <div class="slide"><img src="/Catalog/img/banner_images/entrega.png" alt="Slide 3"></div>
 
-            <div class="slide first">
-                <img src='/Catalog/img/banner_images/Copilot_20250620_181933.png' alt="image 1">
-            </div>
-
-            <div class="slide">
-                <img src='/Catalog/img/banner_images/Copilot_20250620_182029.png' alt="image 2">
-            </div>
-
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-            </div>
-        </div>
-
-        <div class="manual-navigation">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
+            <!-- Clone do primeiro (após o último real) -->
+            <div class="slide" data-clone="first"><img src="/Catalog/img/banner_images/parcelamento.png" alt="Slide 1 clone"></div>
         </div>
     </div>
 
@@ -52,10 +41,16 @@
     </div>
 
     <div>
+        <?php include '../tools/promo-video.php'; ?>
+    </div>
+
+    <div>
         <?php include '../tools/footer.html'; ?>
     </div>
 
-    <script src="/Catalog/js/script.js"></script>
+    <script src="/Catalog/js/script.js?v=<?= time() ?>"></script>
+    <script src="/Catalog/js/promo-video.js?v=<?= time() ?>"></script>
+
 </body>
 
 </html>
