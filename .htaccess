@@ -43,3 +43,6 @@ RewriteRule ^admin/adicionar/?$ manager/management/add_product.php [L,QSA]
 
 # Editar Produto
 RewriteRule ^admin/editar/?$ manager/management/edit_product.php [L,QSA]
+
+# Editar Vídeo Promocional
+RewriteRule ^admin/video/?$ manager/management/video.php [L,QSA]
