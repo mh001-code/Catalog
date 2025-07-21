@@ -88,6 +88,7 @@
     transform: scale(1.05);
     /* Efeito de zoom nos ícones */
 }
+
 .crediario-link {
     text-align: right;
     margin-top: 1rem;
@@ -160,9 +161,11 @@
 }
 
 .miniaturas {
-    display: flex;
+    max-width: 270px;
+    /* 3 miniaturas de 60px + 2 gaps de 10px */
+    margin: 0 auto;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
 }
 
 .miniatura {
@@ -201,15 +204,6 @@
     cursor: zoom-out;
 }
 
-.imagem-zoomada {
-    max-width: 60%;
-    max-height: 60%;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
-}
-
 .modal:active .imagem-zoomada {
     transform: scale(1.05);
 }
@@ -234,7 +228,8 @@
     justify-content: center;
     cursor: zoom-out;
     width: 100%;
-    height: 100vh; /* ou o tamanho que quiser */
+    height: 100vh;
+    /* ou o tamanho que quiser */
 }
 
 #zoomModal img {
@@ -245,14 +240,27 @@
     display: block;
 }
 
+#imagemZoomada {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 300px;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    cursor: zoom-in;
+}
+
 #imagemZoomada.zoomed {
-    cursor: grab;
-    max-width: none;
-    max-height: none;
-    width: auto;
-    height: auto;
-    position: absolute !important;
-    object-fit: fill;
+    position: absolute;
+    object-fit: contain;
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 .fechar-btn {
@@ -287,34 +295,6 @@
         /* Centraliza os itens */
         gap: 20px;
         margin-bottom: 20px;
-    }
-
-    .imagem-zoomada {
-        max-width: 90% !important;
-        max-height: 90% !important;
-        object-fit: contain;
-        aspect-ratio: 1/1;
-    }
-
-    #imagemZoomada.zoomed {
-        width: 90% !important;
-        height: auto !important;
-        position: static !important;
-        /* remove absolute para evitar transbordar */
-        max-width: 90%;
-        max-height: 90%;
-        object-fit: contain;
-    }
-
-    #zoomModal {
-        overflow: auto;
-    }
-
-    #zoomModal img {
-        position: static !important;
-        /* evita problemas no mobile */
-        max-width: 90%;
-        max-height: 90%;
     }
 
     #preco-produto {
@@ -402,6 +382,27 @@
         border-radius: 4px;
         object-fit: scale-down;
     }
+
+    #imagemZoomada {
+        width: 50vw;
+        height: auto;
+        max-height: 50vh;
+    }
+
+    #imagemZoomada.zoomed {
+        width: 90vw !important;
+        height: auto !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(2);
+        max-width: 90vw;
+        max-height: 80vh;
+    }
+
+    #zoomModal img {
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 /* Responsividade para telas pequenas (smartphones em modo retrato) */
@@ -430,17 +431,26 @@
         flex: 1 1 200px;
     }
 
-    .imagem-zoomada {
-        max-width: 95% !important;
-        max-height: 95% !important;
+    #imagemZoomada {
+        width: 60vw;
+        height: auto;
+        max-height: 60vh;
     }
 
     #imagemZoomada.zoomed {
-        width: 95% !important;
+        width: 95vw !important;
         height: auto !important;
-        position: static !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(1.5);
+        max-width: 95vw;
+        max-height: 75vh;
     }
 
+    #zoomModal img {
+        max-width: 100%;
+        max-height: 100%;
+    }
     #preco-produto {
         font-size: 1.5em;
         /* Menor tamanho do preço */
@@ -482,7 +492,7 @@
     }
 
     .crediario-link {
-    text-align: center;
+        text-align: center;
     }
 
     .preco-e-aviso {

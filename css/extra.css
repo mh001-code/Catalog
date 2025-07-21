@@ -52,17 +52,39 @@
 }
 
 /* Links dentro da lista */
-.extra a {
-    color: #0a2da3;
+.about-us {
+    color: #ffff;
     text-decoration: none;
     font-weight: bold;
-    display: inline-block; /* Necessário para aplicar transform */
+    display: inline-block;
+    /* Necessário para aplicar transform */
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.extra a:hover {
+.about-us:hover {
+    transform: scale(1.05);
+}
+
+.talk-us {
+    color: #0a2da3;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    /* Necessário para aplicar transform */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.talk-us:hover {
     color: #082583;
     transform: scale(1.05);
+}
+
+.icon-whatsapp-extra {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: 6px;
+    vertical-align: middle;
 }
 
 /* Separador Opcional */

@@ -1,0 +1,84 @@
+#promo-video-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  max-width: 90vw;
+  z-index: 1000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background: #000;
+}
+
+#promo-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#promo-video-container button {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+#promo-close-btn {
+  top: 5px;
+  right: 5px;
+}
+
+#promo-fullscreen-btn {
+  bottom: 5px;
+  right: 5px;
+  display: none;
+}
+
+#promo-unmute-btn {
+  bottom: 5px;
+  left: 5px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.promo-hidden {
+  display: none;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+  #promo-video-container {
+    width: 180px;       /* menor largura para mobile */
+    bottom: 15px;       /* menor distância da borda inferior */
+    right: 15px;        /* menor distância da borda direita */
+    border-radius: 8px;
+  }
+
+  #promo-video-container button {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+
+  #promo-unmute-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+    display: block;
+  }
+
+  #promo-fullscreen-btn {
+    display: block;
+  }
+}
