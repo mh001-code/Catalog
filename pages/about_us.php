@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby-di Magazine - Quem Somos</title>
-    <link rel="stylesheet" href="/Catalog/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
 </head>
 
@@ -53,8 +53,8 @@
         </ul>
 
         <div class="whatsapp-link">
-            <a href="https://wa.link/0osv00" class="btn-whatsapp" target="_blank" class="about-us" rel="noreferrer">
-                <img src="/Catalog/img/icons/whatsapp_icon.svg" alt="Ícone do WhatsApp" class="icon-whatsapp-extra">
+            <a href="https://wa.link/vmq2bd" class="btn-whatsapp" target="_blank" class="about-us" rel="noreferrer">
+                <img src="/img/icons/whatsapp_icon.svg" alt="Ícone do WhatsApp" class="icon-whatsapp-extra">
                 Fale Conosco
             </a>
         </div>
@@ -64,8 +64,8 @@
     <div>
         <?php include '../tools/footer.html'; ?>
     </div>
-
-    <script src="/Catalog/js/script.js"></script>
+    
+    <script src="/js/script.js?v=<?= time() ?>"></script>
 </body>
 
 </html>

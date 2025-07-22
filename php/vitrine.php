@@ -64,7 +64,7 @@ function slugify($text)
                             <p class="preco"></p>
                             <p class="parcelamento"></p>
                             <br>
-                            <span class="acrescimo"></span>
+                            <span class="entrega_montagem"></span>
                             <br>
                             <p class="indisponivel-text">Produto Indisponível</p>
                             <br>
@@ -73,11 +73,11 @@ function slugify($text)
                             <img src="<?= $produto['imagem']; ?>" alt="<?= $produto['nome']; ?>">
                             <h3><?= $produto['nome']; ?></h3>
                             <p class="preco"><?= 'R$ ' . number_format($produto['preco'], 2, ',', '.'); ?></p>
-                            <p class="parcelamento">ou em 5x de R$ <?= $valorParcela; ?></p>
-                            <span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>
+                            <p class="parcelamento">em 5x de R$ <?= $valorParcela; ?> no cartão!</p>
                             <p class="crediario">Ou em até 12x no Crediário!</p>
+                            <span class="entrega_montagem">Entrega e Montagem Grátis!</span>
                             <p class="indisponivel-text"></p>
-                            <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
+                            <a href="/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
                                 <button class="btn-ver-mais">Detalhes</button>
                             </a>
                         <?php endif; ?>
@@ -112,11 +112,11 @@ function slugify($text)
                             <img src="<?= $produto['imagem']; ?>" alt="<?= $produto['nome']; ?>">
                             <h3><?= $produto['nome']; ?></h3>
                             <p class="preco"><?= 'R$ ' . number_format($produto['preco'], 2, ',', '.'); ?></p>
-                            <p class="parcelamento">ou em 5x de R$ <?= $valorParcela; ?></p>
-                            <span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>
+                            <p class="parcelamento">em 5x de R$ <?= $valorParcela; ?> no cartão!</p>
                             <p class="crediario">Ou em até 12x no Crediário!</p>
+                            <span class="entrega_montagem">Entrega e Montagem Grátis!</span>
                             <p class="indisponivel-text"></p>
-                            <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
+                            <a href="/produto/<?= $produto['id']; ?>/<?= slugify($produto['nome']); ?>">
                                 <button class="btn-ver-mais">Detalhes</button>
                             </a>
                         <?php endif; ?>

@@ -40,7 +40,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados da Pesquisa</title>
-    <link rel="stylesheet" href="/Catalog/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
 </head>
 
@@ -67,7 +67,7 @@ try {
                             <p class="preco"></p>
                             <p class="parcelamento"></p>
                             <br>
-                            <span class="acrescimo"></span>
+                            <span class="entrega_montagem"></span>
                             <br>
                             <p class="indisponivel-text">Produto Indisponível</p>
                             <br>
@@ -76,11 +76,11 @@ try {
                             <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
                             <h3><?= htmlspecialchars($produto['nome']) ?></h3>
                             <p class="preco">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-                            <p class="parcelamento">ou em 5x de R$ <?= $valorParcela; ?></p>
-                            <span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>
+                            <p class="parcelamento">em 5x de R$ <?= $valorParcela; ?> no cartão!</p>
                             <p class="crediario">Ou em até 12x no Crediário!</p>
+                            <span class="entrega_montagem">Entrega e Montagem Grátis!</span>
                             <p class="indisponivel-text"></p>
-                            <a href="/Catalog/produto/<?= $produto['id']; ?>/<?= $slug ?>">
+                            <a href="/produto/<?= $produto['id']; ?>/<?= $slug ?>">
                                 <button class="btn-ver-mais">Detalhes</button>
                             </a>
                         <?php endif; ?>
@@ -91,9 +91,9 @@ try {
     </div>
 
     <div><?php include '../tools/footer.html'; ?></div>
-
-    <script src="/Catalog/js/products.js"></script>
-    <script src="/Catalog/js/script.js"></script>
+    
+    <script src="/js/products.js?v=<?= time() ?>"></script>
+    <script src="/js/script.js?v=<?= time() ?>"></script>
 
 </body>
 

@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  fetch('/Catalog/php/get_product_by_id.php?id=' + id)
+  fetch('/php/get_product_by_id.php?id=' + id)
     .then(response => response.json())
     .then(produto => {
       const whatsappDiv = document.getElementById("whatsapp-link");
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       whatsappDiv.innerHTML = `
         <a href="${linkWhatsApp}" target="_blank" class="btn-whatsapp">
           Falar sobre este produto
-          <img src="/Catalog/img/icons/whatsapp_icon.svg" alt="WhatsApp" class="icon-whatsapp" />
+          <img src="/img/icons/whatsapp_icon.svg" alt="WhatsApp" class="icon-whatsapp" />
         </a>
       `;
 
@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const preco = parseFloat(produto.preco);
       const aviso = document.getElementById("aviso-parcelamento");
-      aviso.textContent = "Atenção: para parcelamentos acima de 5x, poderá haver acréscimo no valor total.";
-      aviso.classList.add("aviso-parcelamento");
+      aviso.textContent = "Entrega e Montagem Grátis!";
+      aviso.classList.add("aviso-montagem");
 
       const crediario = document.getElementById("crediario");
       crediario.textContent = "Ou em até 12x no Crediário!"
@@ -138,15 +138,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       document.getElementById("preco-produto").innerHTML = `
-        <strong>${precoFormatado}</strong><br>
-        <span class="parcelamento">ou em 5x de R$ ${valorParcelaFormatado}</span><br>
+        <span class="parcelamento">em 5x de R$ ${valorParcelaFormatado} sem juros<br>no cartão!</span><br>
       `;
 
       const navCategorias = document.getElementById("navegacao-categorias");
 
       const categoriaNomeFormatada = produto.categoria.replace(/_/g, " ");
       const categoriaSlug = slugify(produto.categoria);
-      const linkCategoria = `<a href="/Catalog/produtos/${categoriaSlug}">${categoriaNomeFormatada}</a>`;
+      const linkCategoria = `<a href="/produtos/${categoriaSlug}">${categoriaNomeFormatada}</a>`;
 
 
       let linkSubcategoria = "";
@@ -154,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (produto.subcategoria) {
         const subcategoriaNomeFormatada = produto.subcategoria.replace(/_/g, " ");
         const subcategoriaSlug = slugify(produto.subcategoria);
-        linkSubcategoria = ` > <a href="/Catalog/produtos/${categoriaSlug}/${subcategoriaSlug}">${subcategoriaNomeFormatada}</a>`;
+        linkSubcategoria = ` > <a href="/produtos/${categoriaSlug}/${subcategoriaSlug}">${subcategoriaNomeFormatada}</a>`;
 
       }
 

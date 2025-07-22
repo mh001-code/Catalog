@@ -129,18 +129,19 @@
     /* Limita o texto a aprox. 60 caracteres */
 }
 
-.aviso-parcelamento {
+.aviso-montagem {
     font-weight: bold;
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
     color: #cc0000 !important;
     text-align: right;
+    margin-top: 25px !important;
 }
 
 .preco-e-aviso .crediario {
     font-weight: bold;
     font-size: 13.9px;
     color: #0a2da3;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .galeria-imagens {
@@ -368,7 +369,7 @@
         margin-top: 10px;
     }
 
-    .aviso-parcelamento {
+    .aviso-montagem {
         font-size: 0.9rem;
         /* Ajusta o tamanho da fonte */
         font-weight: bold;
@@ -501,7 +502,7 @@
         margin-top: 5px;
     }
 
-    .aviso-parcelamento {
+    .aviso-montagem {
         font-size: 0.8rem;
         /* Menor texto de aviso */
         font-weight: bold;

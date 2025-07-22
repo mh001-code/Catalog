@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("URL Path:", window.location.pathname);
 
   // Captura o caminho da URL
-  const path = window.location.pathname; // ex: /Catalog/produtos/quarto/guarda-roupas
+  const path = window.location.pathname; // ex: /produtos/quarto/guarda-roupas
   const partes = path.split("/").filter(p => p); // remove elementos vazios
 
   let categoria = null;
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   titulo.textContent = tituloPagina;
 
   // Buscar produtos do PHP
-  let url = `/Catalog/php/get_products.php?categoria=${encodeURIComponent(categoria)}`;
+  let url = `/php/get_products.php?categoria=${encodeURIComponent(categoria)}`;
   if (subcategoria) {
     url += `&subcategoria=${encodeURIComponent(subcategoria)}`;
   }
@@ -94,13 +94,13 @@ function slugify(texto) {
     let imgClass = "";
     let precoHTML = `
       <p class="preco"><strong>R$ ${valorFormatado}</strong></p>
-      <p class="parcelamento">ou em 5x de R$ ${valorParcelaFormatado}</p>
+      <p class="parcelamento">em 5x de R$ ${valorParcelaFormatado} no cartão!</p>
     `;
-    let acrescimoHTML = `<span class="acrescimo">Acima de 5x sujeito a acréscimo.</span>`;
+    let entrega_montagemHTML = `<span class="entrega_montagem">Entrega e Montagem Grátis!</span>`;
     let crediarioHTML = '<p class = "crediario">Ou em até 12x no Crediário!</p>';
     let nomeSlug = slugify(produto.nome);
 
-    let detalhesHTML = `<a href="/Catalog/produto/${produto.id}/${nomeSlug}">
+    let detalhesHTML = `<a href="/produto/${produto.id}/${nomeSlug}">
                       <button class="btn-ver-mais">Detalhes</button>
                     </a>`;
 
@@ -110,7 +110,7 @@ function slugify(texto) {
     if (produto.indisponivel == 1) {
       imgClass = "img-indisponivel";
       precoHTML = "";  // Remove o preço
-      acrescimoHTML = "";
+      entrega_montagemHTML = "";
       crediarioHTML = "";
       indisponivelTexto = `<p class="indisponivel-text">Produto Indisponível</p>`;
       detalhesHTML = `<button class="btn-ver-mais indisponivel" disabled>Indisponível</button>`;
@@ -125,8 +125,8 @@ function slugify(texto) {
       <img src="${produto.imagem}" alt="${produto.nome}" class="${imgClass}">
       <h3>${produto.nome}</h3>
       ${precoHTML}
-      ${acrescimoHTML}
       ${crediarioHTML}
+      ${entrega_montagemHTML}
       ${indisponivelTexto}
       ${detalhesHTML}
     `;
@@ -138,41 +138,40 @@ function slugify(texto) {
 
 const form = document.getElementById('product-form');
 
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
+if (form) {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-  const produto = {
-    nome: document.getElementById('nome').value,
-    preco: document.getElementById('preco').value,
-    descricao: document.getElementById('descricao').value,
-    imagem: document.getElementById('imagem').value,
-    categoria: document.getElementById('categoria').value,
-    subcategoria: document.getElementById('subcategoria').value
-  };
+    const produto = {
+      nome: document.getElementById('nome').value,
+      preco: document.getElementById('preco').value,
+      descricao: document.getElementById('descricao').value,
+      imagem: document.getElementById('imagem').value,
+      categoria: document.getElementById('categoria').value,
+      subcategoria: document.getElementById('subcategoria').value
+    };
 
-  console.log("Produto a ser enviado:", produto);
+    console.log("Produto a ser enviado:", produto);
 
-  fetch('../php/add_product.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(produto)
-  })
-    .then(response => response.json())
-    .then(data => {
-      const mensagem = document.getElementById('mensagem');
-      mensagem.textContent = data.message;
-
-      if (data.success) {
-        mensagem.style.color = 'green';
-        form.reset(); // ✅ Correto agora!
-      } else {
-        mensagem.style.color = 'red';
-      }
+    fetch('../php/add_product.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(produto)
     })
-    .catch(error => console.error('Erro ao enviar produto:', error));
-});
+      .then(response => response.json())
+      .then(data => {
+        const mensagem = document.getElementById('mensagem');
+        mensagem.textContent = data.message;
 
-
-
+        if (data.success) {
+          mensagem.style.color = 'green';
+          form.reset(); // ✅ Correto agora!
+        } else {
+          mensagem.style.color = 'red';
+        }
+      })
+      .catch(error => console.error('Erro ao enviar produto:', error));
+  });
+}

@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const href = this.getAttribute('href');
                     console.log("Redirecting to:", href); // Log de redirecionamento
                     if (href && href.includes('index.php')) {
-                        window.location.href = "../pages/index.php"; // Redireciona para Home
+                        window.location.href = "/index.php"; // Redireciona para Home
                     } else {
                         window.location.href = href; // Redireciona normalmente
                     }
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const response = await fetch(`/Catalog/php/search_suggestion.php?q=${encodeURIComponent(query)}`);
+            const response = await fetch(`/php/search_suggestion.php?q=${encodeURIComponent(query)}`);
             const dados = await response.json();
 
             sugestoes.innerHTML = '';
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         .replace(/\s+/g, "-") // substitui espaços por hífens
                         .replace(/-+/g, "-") // evita múltiplos hífens
 
-                    window.location.href = `/Catalog/produto/${produto.id}/${slug}`;
+                    window.location.href = `/produto/${produto.id}/${slug}`;
                 });
 
                 sugestoes.appendChild(item);

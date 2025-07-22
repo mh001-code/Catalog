@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby-di Magazine - Fale Conosco</title>
-    <link rel="stylesheet" href="/Catalog/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" href="../img/icons/favicon1.png" type="image/x-icon">
 </head>
 
@@ -36,9 +36,9 @@
 
         <h2>Redes Sociais</h2>
         <ul>
-            <li><a href="https://instagram.com/moveis.gilmar/" target="_blank" class="talk-us">Instagram</a></li>
+            <li><a href="https://instagram.com/babydimoveis/" target="_blank" class="talk-us">Instagram</a></li>
             <li><a href="https://m.facebook.com/babydimoveis/" target="_blank" class="talk-us">Facebook</a></li>
-            <li><a href="https://www.tiktok.com/@gilmarmontador51?_t=ZM-8ui1zHRUH5i&_r=1" target="_blank" class="talk-us">TikTok</a></li>
+            <li><a href="https://www.tiktok.com/@rodrigobabydi?_t=ZM-8xYzZdafvzs&_r=1" target="_blank" class="talk-us">TikTok</a></li>
         </ul>
 
         <p>Acompanhe nossos trabalhos e novidades nas redes sociais!</p>
@@ -48,7 +48,7 @@
         <?php include '../tools/footer.html'; ?>
     </div>
 
-    <script src="/Catalog/js/script.js"></script>
+    <script src="/js/script.js?v=<?= time() ?>"></script>
 
 </body>
 
